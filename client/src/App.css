@@ -1,0 +1,24 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ol, ul {
+	list-style: none;
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+	padding: 0;
+} */
+
+/* Common */
+.Container {
+
+}
+.Wrap {
+  width: 100%;
+  max-width: 1080px;
+  padding: 0 40px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}

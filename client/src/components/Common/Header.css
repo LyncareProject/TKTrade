@@ -1,0 +1,43 @@
+.Header {
+    width: 100%;
+    height: 60px;
+}
+.Header .Wrap {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Header .Wrap .MenuList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Header .Wrap .Menu {
+    margin: 0 10px;
+    position: relative;
+}
+
+.Header .Wrap .CompanySubMenu {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: red;
+    padding: 20px 0;
+    position: absolute;
+    top: 30px;
+    width: 85px;
+    height: auto;
+    border-left: 1px solid #a8a8a8;
+    border-right: 1px solid #a8a8a8;
+    border-bottom: 3px solid #7c808f;
+    padding: 0 10px;
+    background: #fff;
+}
+.Header .Wrap .CompanyMenu:hover .CompanySubMenu{
+    opacity: 1;
+}
+.Header .Wrap .SubMenu {
+    margin: 10px 0;
+}
