@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Header from './components/Common/Header';
 import Footer from './components/Common/Footer';
 import Main from './pages/Main/Main';
+import Product from './pages/Product.jsx/Product';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Main />} />
+        <Route path='/product/:id' element={<Product />} />
       </Routes>
       <Footer />
     </div>

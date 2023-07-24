@@ -38,6 +38,31 @@
 .Header .Wrap .CompanyMenu:hover .CompanySubMenu{
     opacity: 1;
 }
+.Header .Wrap .ProductsSubMenu {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: red;
+    padding: 20px 0;
+    position: absolute;
+    top: 30px;
+    width: 185px;
+    height: auto;
+    border-left: 1px solid #a8a8a8;
+    border-right: 1px solid #a8a8a8;
+    border-bottom: 3px solid #7c808f;
+    padding: 0 10px;
+    background: #fff;
+}
+
+.Header .Wrap .ProductsMenu:hover .ProductsSubMenu{
+    opacity: 1;
+}
 .Header .Wrap .SubMenu {
     margin: 10px 0;
 }
+.Header .Wrap .SubMenu:hover {
+    color: blue;
+    transition: all 0.3s;
+}   

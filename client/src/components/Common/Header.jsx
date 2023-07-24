@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './Header.css'
 import { Link } from 'react-router-dom';
+import data from '../../Data'
+
 const company = [
     { name: 'Greeting', href: '/'},
     { name: 'History', href: '/'},
@@ -39,11 +41,18 @@ function Header() {
                         }
                     </div>
                 </div>
-
-
-                <Link to='/' className='Menu'>
+                <div className='Menu ProductsMenu'>
                     <p>Products</p>
-                </Link>
+                    <div className='ProductsSubMenu'>
+                        {
+                            data.map((a, i)=>
+                                <Link to={`/product/${a.id}`} className='SubMenu' key={ i }>
+                                    <p>{ a.name }</p>
+                                </Link>
+                            )
+                        }
+                    </div>
+                </div>
                 <Link to='/' className='Menu'>
                     <p>Rental</p>
                 </Link>
