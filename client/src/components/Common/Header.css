@@ -9,25 +9,30 @@
     align-items: center;
 }
 .Header .Wrap .MenuList {
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .Header .Wrap .Menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
     margin: 0 10px;
     position: relative;
+    cursor: pointer;
 }
 
 .Header .Wrap .CompanySubMenu {
-    opacity: 0;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: flex-start;
     background-color: red;
     padding: 20px 0;
     position: absolute;
-    top: 30px;
-    width: 85px;
+    top: 60px;
+    width:   85px;
     height: auto;
     border-left: 1px solid #a8a8a8;
     border-right: 1px solid #a8a8a8;
@@ -36,18 +41,17 @@
     background: #fff;
 }
 .Header .Wrap .CompanyMenu:hover .CompanySubMenu{
-    opacity: 1;
+    display: flex;
 }
 .Header .Wrap .ProductsSubMenu {
-    opacity: 0;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: flex-start;
     background-color: red;
     padding: 20px 0;
     position: absolute;
-    top: 30px;
-    width: 185px;
+    top: 60px;
+    width: 285px;
     height: auto;
     border-left: 1px solid #a8a8a8;
     border-right: 1px solid #a8a8a8;
@@ -57,7 +61,7 @@
 }
 
 .Header .Wrap .ProductsMenu:hover .ProductsSubMenu{
-    opacity: 1;
+    display: flex;
 }
 .Header .Wrap .SubMenu {
     margin: 10px 0;

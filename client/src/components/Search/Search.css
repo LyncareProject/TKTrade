@@ -1,0 +1,42 @@
+.Search {
+    position: relative;
+}
+.SearchInput {
+    border: 1px solid #EDEDED;
+    border-radius: 10px;
+    padding: 5px 15px;
+    box-sizing: border-box;
+}
+.SearchResult {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    border: 1px solid #EDEDED;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.FilteredData {
+    width: 320px;
+    height: 60px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    border-bottom: 1px solid #EDEDED;
+}
+.FilteredData:hover {
+    background-color: #EDEDED;
+    transition: all 0.3s;
+}
+.FilteredDataImg {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+.FilteredDataImg img {
+    width: auto;
+    height: 100%;
+}

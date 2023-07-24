@@ -1,0 +1,67 @@
+.Product .Wrap {
+    display: flex;
+}
+.Product .Wrap .Left{
+    width: calc(50% - 30px);
+    margin-right: 15px;
+    border: 1px solid #EDEDED;
+    padding: 20px;
+}
+.Product .Wrap .Right{
+    width: calc(50% - 30px);
+    margin-left: 15px;
+}
+.ProductImgWrap {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.ProductImgWrap img{
+    width: 100%;
+}
+.ImgControllerWrap {
+    display: flex;
+    width: 100%;
+    padding: 20px 0;
+    border-top: 1px solid #EDEDED;
+}
+.ImgController {
+    width: calc(20% - 10px);
+    margin: 5px;
+    overflow: hidden;
+}
+.ImgController:hover {
+    opacity: 0.7;
+    transition: all 0.3s;
+}
+.ImgController img{
+    width: 100%;
+    cursor: pointer;
+}
+.ImgController img{
+    width: 100%;
+    cursor: pointer;
+}
+.ProductName {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.ProductContent {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    white-space: pre-line;
+    line-height: 2.0;
+}
+.ProductPDF {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    background-color: #777;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 400;
+}
