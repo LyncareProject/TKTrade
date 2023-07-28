@@ -3,9 +3,10 @@ import { createCategory, createSubcategory, deleteCategory, deleteSubcategory, r
 import './Category.css'
 
 const Category = ()=>{
-
+    const [ loading, setLoading ] = useState(false)
     const [ mainCategory, setMainCategory ] = useState([])
-    // const [ subCategory, setSubCategory ] = useState([])
+    const [ subCategory, setSubCategory ] = useState([])
+
     const [ input, setInput ] = useState({
         mainCategoryName : '',
         subCategoryName : ''
@@ -22,26 +23,37 @@ const Category = ()=>{
     const [ checkCategory, setCheckCategory ] = useState('')
 
     const createCategoryBtn = ()=>{
+        setLoading(true)
         createCategory({ category : mainCategoryName })
-            .then(response => {
-
+            .then(()=>{
+                setLoading(false)
             })
-            .catch()
     }
 
     useEffect(()=>{
         readCategory()
             .then(response=> setMainCategory(response.data))
             .catch(err => console.log(err.message))
-    },[])
+    
+    },[loading])
+
+    const deleteSubCategoryBtn = (id)=>{
+        deleteSubcategory({ category : checkCategory, subcategory : id })
+    }
+
+    useEffect(()=>{
+        if(checkCategory){
+            readSubcategory({ category: checkCategory })
+                .then(response=> setSubCategory(response.data))
+                .catch(err => console.log(err.message))
+        }
+    }, [checkCategory])
 
     return(
         <div className="Category">
             <div className="Wrap">
-
                 <div>
                     <h3>카테고리 대분류</h3>
-                    { checkCategory }
                     <div className="CategoryWrap">
                         {
                             !mainCategory
@@ -63,7 +75,27 @@ const Category = ()=>{
                         <button onClick={ createCategoryBtn }>+</button>
                     </div>
                 </div>
+                <div>
+                    <h3>카테고리 소분류</h3>
+                    <div className="CategoryWrap">
+                        {
+                            !subCategory
+                            ? <p>Noting</p>
+                            : subCategory.map((a, i)=>
+                                <div className="CategoryList" key={ i }>
+                                    <p>{ a.subcategory }</p>
+                                    <button onClick={()=>{
+                                        deleteSubCategoryBtn(a.category)
+                                    }}>삭제</button>
+                                </div>
+                            )
+                        }
 
+                    </div>
+                    <div>
+                      
+                    </div>
+                </div>
             </div>
         </div>
     )
