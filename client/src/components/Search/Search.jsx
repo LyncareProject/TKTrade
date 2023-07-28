@@ -22,6 +22,11 @@ const Search = ()=>{
         )
         setFilteredData(result)
     }, [input]) 
+    useEffect(()=>{
+        document.addEventListener('click', ()=>{
+            setInput('')
+        });
+    }, [])
     return(
         <div className='Search'>
             <input className='SearchInput' type="text" placeholder='Search' onChange={ handleInput }/>

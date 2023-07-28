@@ -1,4 +1,4 @@
-/* * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -9,21 +9,33 @@ ol, ul {
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 	padding: 0;
-} */
+}
 
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
 /* Common */
+
+body {
+  font-family: 'Pretendard-Regular';
+}
+
 .Container {
   padding-top: 80px;
   padding-bottom: 80px;
 }
 .Wrap {
   width: 100%;
-  max-width: 1080px;
-  padding-left: 40px;
-  padding-right: 40px;
+  max-width: 980px;
+  padding-left: 20px;
+  padding-right: 20px;
   box-sizing: border-box;
   margin: 0 auto;
 }
+
 .App {
   position: relative;
 }

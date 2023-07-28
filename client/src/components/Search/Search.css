@@ -1,19 +1,40 @@
 .Search {
+    width: 200px;
     position: relative;
 }
 .SearchInput {
-    border: 1px solid #EDEDED;
-    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    border: 1px solid #3189FF;
     padding: 5px 15px;
     box-sizing: border-box;
+    font-size: 14px;
+}
+.SearchInput:focus {
+    outline: none;
+}
+
+.Search:after {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    right: 5px;
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-image: url('../../assets/images/SearchIcon.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 .SearchResult {
     position: absolute;
     top: 40px;
-    left: 0;
+    right: 0;
     border: 1px solid #EDEDED;
     border-radius: 10px;
     background-color: #fff;
+    z-index: 9;
 }
 .FilteredData {
     width: 320px;

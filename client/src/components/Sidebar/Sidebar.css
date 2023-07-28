@@ -1,0 +1,42 @@
+.Sidebar {
+    position: absolute;
+    display: flex;
+    width: 300px;
+    height: 100vh;
+    padding: 50px 20px;
+    top: 0;
+    background-color: #FFF;
+    border-right: 1px solid #EDEDED;
+    box-sizing: border-box;
+    z-index: 9;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.Closed {
+    left: -300px;
+}
+.Open {
+    left: 0;
+    transition: all 0.2s;
+}
+.Sidebar .MobileLogo {
+    margin-bottom: 60px;
+}
+.Sidebar .MobileIcon {
+    width: 20px;
+    margin-right: 15px;
+}
+.Sidebar .MobileMenu {
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 5px;
+    margin-bottom: 15px;
+}
+.SidebarOut {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.15);
+}

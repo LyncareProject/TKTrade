@@ -62,3 +62,8 @@
     -ms-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
 }
+@media (max-width : 768px) {
+    .Quote {
+        display: none;
+    }
+}
