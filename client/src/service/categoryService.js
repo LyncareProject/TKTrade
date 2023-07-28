@@ -14,6 +14,8 @@ export const readCategory = () => {
 export const deleteCategory = ({ category }) => {
     return axios.delete(`${baseUrl}/category/${category}`);
 };
+
+
 export const createSubcategory = ({
         category,
         subcategory

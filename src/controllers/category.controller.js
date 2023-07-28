@@ -22,7 +22,7 @@ exports.deleteCategory = async (req, res) => {
 }
 exports.deleteSubcategory = async (req, res) => {
     const { category, subcategory } = req.body
-    
+    console.log(category, subcategory)
     await Subcategory.deleteOne({ category, subcategory })
         .then(()=>{
             res.status(200).json({ message : "Success"})

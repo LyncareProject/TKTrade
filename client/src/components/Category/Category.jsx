@@ -1,100 +1,131 @@
-import { useEffect, useState } from "react";
-import { createCategory, createSubcategory, deleteCategory, deleteSubcategory, readCategory, readSubcategory } from "../../service/categoryService";
+import { useEffect, useState } from "react"
+import { createCategory, createSubcategory, deleteCategory, deleteSubcategory, readCategory, readSubcategory } from "../../service/categoryService"
 import './Category.css'
 
 const Category = ()=>{
-    const [ loading, setLoading ] = useState(false)
     const [ mainCategory, setMainCategory ] = useState([])
     const [ subCategory, setSubCategory ] = useState([])
-
+    const [ checkedCategory, setCheckedCategory ] = useState('')
     const [ input, setInput ] = useState({
-        mainCategoryName : '',
-        subCategoryName : ''
+        mainCategoryName : "",
+        subCategoryName : "",
     })
     const { mainCategoryName, subCategoryName } = input
 
+    const fatchMainCategory = async ()=>{
+        await readCategory()
+            .then(response => setMainCategory(response.data))
+            .catch(err => console.log(err.messages))
+    }
+    const fatchSubCategory = async ({ category }) => {
+        await readSubcategory({ category })
+            .then(response => setSubCategory(response.data))
+            .catch(err => console.log(err.messages))
+    }
+    const handleChecked = ( name )=>{
+        setCheckedCategory(name)
+    }
     const handleInput = (e)=>{
         setInput({
             ...input,
             [ e.target.name ] : e.target.value
         })
     }
-
-    const [ checkCategory, setCheckCategory ] = useState('')
-
-    const createCategoryBtn = ()=>{
-        setLoading(true)
-        createCategory({ category : mainCategoryName })
+    const createMainCategory = async ()=>{
+        await createCategory({ category : mainCategoryName }).then(()=>{
+            fatchMainCategory()
+        })
+    }
+    const createSubCategory = async ()=>{
+        await createSubcategory({
+            category : checkedCategory,
+            subcategory : subCategoryName
+        }).then(()=>{
+            fatchSubCategory({ category : checkedCategory })
+        })
+    }
+    const deleteMainCategory = async ( name )=>{
+        if (window.confirm("상위 카테고리를 삭제하면 하위 카테고리 또한 삭제됩니다.")) {
+            await deleteCategory({ category : name })
             .then(()=>{
-                setLoading(false)
-            })
-    }
-
-    useEffect(()=>{
-        readCategory()
-            .then(response=> setMainCategory(response.data))
-            .catch(err => console.log(err.message))
-    
-    },[loading])
-
-    const deleteSubCategoryBtn = (id)=>{
-        deleteSubcategory({ category : checkCategory, subcategory : id })
-    }
-
-    useEffect(()=>{
-        if(checkCategory){
-            readSubcategory({ category: checkCategory })
-                .then(response=> setSubCategory(response.data))
-                .catch(err => console.log(err.message))
+                fatchMainCategory()
+            }) 
+        } else {
+            alert("취소되었습니다.");
         }
-    }, [checkCategory])
+    }
+
+    const deleteSubCategory = async ( name )=>{
+        if (window.confirm("하위 카테고리를 삭제하시겠습니까?")) {
+            await deleteSubcategory({
+                category : checkedCategory,
+                subcategory : name
+            }).then(()=>{
+                fatchSubCategory({ category : checkedCategory })
+            })
+        } else {
+            alert("취소되었습니다.");
+        }
+      
+    }
+    useEffect(()=>{
+        fatchMainCategory()
+    }, [])
+
+    useEffect(()=>{
+        fatchSubCategory({ category : checkedCategory })
+    }, [checkedCategory])
 
     return(
-        <div className="Category">
+        <div className='Category'>
             <div className="Wrap">
                 <div>
-                    <h3>카테고리 대분류</h3>
+                    <h3 className="CategoryTitle">상위 카테고리</h3>
                     <div className="CategoryWrap">
                         {
-                            !mainCategory
-                            ? <p>Noting</p>
-                            : mainCategory.map((a, i)=>
-                                <div className="CategoryList" key={ i } onClick={()=>{
-                                    setCheckCategory(a.category)
-                                }}>
+                            mainCategory.map((a, i)=>
+                                <div className="CategoryList" onClick={()=>{
+                                    handleChecked(a.category)
+                                }} key={ i }>
                                     <p>{ a.category }</p>
-                                    {/* <button onClick={()=>{
-                                        deleteCategoryBtn(a.category)
-                                    }}>삭제</button> */}
+                                    <button onClick={()=>{
+                                        deleteMainCategory(a.category)
+                                    }}>삭제</button>
                                 </div>
                             )
                         }
                     </div>
                     <div className="CategoryInputWrap">
-                        <input placeholder="카테고리 명을 입력하세요" type="text" name="mainCategoryName" onChange={ handleInput }/>
-                        <button onClick={ createCategoryBtn }>+</button>
+                        <input type="text" placeholder="상위 카테고리" name="mainCategoryName" onChange={ handleInput }/>
+                        <button onClick={ createMainCategory }>+</button>
                     </div>
                 </div>
                 <div>
-                    <h3>카테고리 소분류</h3>
+                    <h3 className="CategoryTitle">하위 카테고리</h3>
                     <div className="CategoryWrap">
                         {
-                            !subCategory
-                            ? <p>Noting</p>
+                            !checkedCategory
+                            ? <p>상위 카테고리를 선택해주세요</p>
                             : subCategory.map((a, i)=>
                                 <div className="CategoryList" key={ i }>
                                     <p>{ a.subcategory }</p>
                                     <button onClick={()=>{
-                                        deleteSubCategoryBtn(a.category)
+                                        deleteSubCategory(a.subcategory)
                                     }}>삭제</button>
                                 </div>
                             )
                         }
-
                     </div>
-                    <div>
-                      
-                    </div>
+                    {
+                        !checkedCategory
+                        ? null
+                        : <div className="CategoryInputWrap">
+                            <input type="text" placeholder="하위 카테고리" name="subCategoryName" onChange={ handleInput }/>
+                            <button onClick={ createSubCategory }>+</button>
+                        </div>
+                        
+                    }
+                    
                 </div>
             </div>
         </div>

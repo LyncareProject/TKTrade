@@ -1,9 +1,9 @@
-.Category .Wrap {
+.ProductList .Wrap {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.Category .Wrap > div {
+.ProductList .Wrap > div {
     width: calc(50% - 50px);
 }
 .CategoryTitle {
