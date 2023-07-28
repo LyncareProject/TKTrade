@@ -32,7 +32,7 @@ function Header({ setSidebar }) {
                     <Link to='/' className='Menu'>
                         <p>HOME</p>
                     </Link>
-                    <Link to='/products' className='Menu'>
+                    <Link to='/product' className='Menu'>
                         <p>PRODUCTS</p>
                     </Link>
                     {/* <div className='Menu ProductsMenu'>

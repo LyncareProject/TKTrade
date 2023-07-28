@@ -1,0 +1,21 @@
+.ProductEditor .Wrap {
+    display: flex;
+    flex-direction: column;
+}
+.ProductEditor .Wrap .labelInput{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+.ProductEditor .EditorLabel {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.ProductEditor .EditorInput {
+    border: 1px solid #777;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 400;
+}

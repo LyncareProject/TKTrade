@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-// const mainRouter = require('./routes/index')
+const mainRouter = require('./routes/index')
 
 app.use(express.static(path.join(__dirname, '../client/build')));
 app.use(express.static(path.join(__dirname, '../public')));
@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-// app.use('/api', mainRouter)
+app.use('/api', mainRouter)
 
 // @ts-ignore
 // eslint-disable-next-line no-unused-vars

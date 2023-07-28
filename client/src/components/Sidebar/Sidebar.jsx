@@ -49,7 +49,7 @@ const Sidebar = ({
                 </a>
                 {
                     Menu.map((a, i)=>
-                        <a href={ a.href } className='MobileMenu'>
+                        <a href={ a.href } className='MobileMenu' key={ i }>
                             <FontAwesomeIcon className='MobileIcon' icon={ a.icon } />
                             { a.name }
                         </a>

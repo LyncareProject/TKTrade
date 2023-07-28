@@ -1,0 +1,57 @@
+.Category .Wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.Category .Wrap > div {
+    width: calc(50% - 50px);
+    display: flex;
+    flex-direction: column;
+}
+.Category .CategoryWrap {
+    width: 100%;
+    height: 500px;
+    border: 1px solid #000;
+    padding: 30px;
+    box-sizing: border-box;
+    overflow: scroll;
+}
+.Category .CategoryWrap > div {
+    width: 500px;
+}
+.Category .CategoryWrap .CategoryList {
+    cursor: pointer;
+    display: flex;
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    color: #000;
+    background-color: #EDEDED;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.Category .CategoryInputWrap {
+    margin-top: 20px;
+    padding: 10px 20px;
+    width: 100%;
+    background-color: #EDEDED;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+.Category .CategoryInputWrap input {
+    width: calc(100% - 20px);
+    background-color: inherit;
+}
+.Category .CategoryInputWrap input:focus {
+    outline: none;
+}
+.Category .CategoryInputWrap button {
+    font-size: 20px;
+    width: 20px;
+}
+.Category .CategoryInputWrap button:hover {
+    opacity: 0.7;
+    transition: all 0.2s;
+}

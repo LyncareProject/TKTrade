@@ -6,6 +6,9 @@ const MONGO_USER = process.env.MONGO_USER || 'lyncare'
 const MONGO_PASSWORD = process.env.MONGO_PASSWORD || 'fls2022'
 const MONGO_CLUSTER = process.env.MONGO_CLUSTER || 'lyncare.5ip2vsa.mongodb.net'
 const MONGO_DBNAME = process.env.MONGO_DBNAME || 'tktrade'
+const EMAIL_SERVICE = process.env.EMAIL_SERVICE 
+const EMAIL_USER = process.env.EMAIL_USER 
+const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD 
 
 /* eslint-disable prefer-destructuring */
 
@@ -17,6 +20,9 @@ const APP_CONFIG_JSON = JSON.stringify({
   MONGO_PASSWORD,
   MONGO_CLUSTER,
   MONGO_DBNAME,
+  EMAIL_SERVICE,
+  EMAIL_USER,
+  EMAIL_PASSWORD
 }).replace(/"/g, '\\"')
 
 module.exports = {
@@ -27,4 +33,7 @@ module.exports = {
   MONGO_CLUSTER,
   MONGO_DBNAME,
   APP_CONFIG_JSON,
+  EMAIL_SERVICE,
+  EMAIL_USER,
+  EMAIL_PASSWORD
 }
