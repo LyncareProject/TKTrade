@@ -66,7 +66,6 @@ const Category = ()=>{
         } else {
             alert("취소되었습니다.");
         }
-      
     }
     useEffect(()=>{
         fatchMainCategory()

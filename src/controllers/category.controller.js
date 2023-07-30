@@ -32,7 +32,6 @@ exports.deleteSubcategory = async (req, res) => {
         })
 }
 exports.createCategory = async (req, res) => {
-    console.log(req.body)
     const category = new Category({
         category : req.body.category
     })
@@ -46,6 +45,16 @@ exports.createCategory = async (req, res) => {
 exports.readSubcategory = async (req, res) => {
     const { category } = req.body
     await Subcategory.find({ category : category })
+        .then(result =>{
+            res.json(result)
+        })
+        .catch((err)=>{
+            res.json(err)
+        })
+}
+exports.readAllSubcategory = async (req, res) => {
+    console.log('부카테고리 접속')
+    await Subcategory.find()
         .then(result =>{
             res.json(result)
         })

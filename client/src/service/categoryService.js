@@ -28,6 +28,9 @@ export const createSubcategory = ({
 export const readSubcategory = ({ category }) => {
     return axios.post(`${baseUrl}/category/subcategory`, { category });
 };
+export const readAllSubcategory = () => {
+    return axios.get(`${baseUrl}/category/subcategory`);
+};
 export const deleteSubcategory = ({ category, subcategory }) => {
     return axios.post(`${baseUrl}/category/subcategory/delete`, {
         category, subcategory
