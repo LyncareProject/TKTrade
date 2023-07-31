@@ -3,17 +3,16 @@ import './ProductEditor.css'
 import { readAllSubcategory, readCategory } from "../../service/categoryService";
 import { createProduct, findOneProduct, updateProduct } from "../../service/productService";
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { uploadImg } from "../../service/uploadService";
 
 const ProductEditor = ({ setMode })=>{
     const { state } = useLocation();
     const navigate = useNavigate()
-
+    const [ loading, setLoading ] = useState(true)
     const [ mainCategory, setMainCategory ] = useState([])
-    const [ subCategory, setSubCategory ] = useState([])
     const [ checkedCategory, setCheckedCategory ] = useState('')
     const [ filteredSub, setFilteredSub ] = useState([])
-
+    const [ fetchData, setFetchData ] = useState([])
+    const [ subCategory, setSubCategory ] = useState([])
     const [ input, setInput ] = useState({
         _id : "",
         nameEng : "",
@@ -23,7 +22,7 @@ const ProductEditor = ({ setMode })=>{
         content : "",
         contentEng : "",
         pdf : "",
-        images : []
+        images : ""
     });
     const { _id, nameEng, name, category, category_2, content, contentEng, pdf, images } = input
 
@@ -33,25 +32,6 @@ const ProductEditor = ({ setMode })=>{
             [ e.target.name ] : e.target.value
         })
     }
-    const handleImageChange = (e) => {
-        // uploadImg(files)
-        // const files = e.target.files;
-        // const imagesArray = Array.from(files).map((file) => URL.createObjectURL(file));
-        // setInput({
-        //     ...input,
-        //     images : [...images, ...imagesArray]
-        // });
-
-    };
-    const handleImageRemove = (index) => {
-        const newImages = [...images];
-        newImages.splice(index, 1);
-        setInput({
-            ...input,
-            images : newImages
-        });
-    };
-    console.log(input)
     const fetchMainCategory = async ()=>{
         await readCategory()
             .then(response => setMainCategory(response.data))
@@ -65,6 +45,7 @@ const ProductEditor = ({ setMode })=>{
 
     useEffect(()=>{
         setMode('product')
+        setLoading(true)
         fetchMainCategory()
         fetchAllSubCategory()
         if(state){
@@ -75,9 +56,9 @@ const ProductEditor = ({ setMode })=>{
                 })
                 .catch(err => console.log(err.messages))
         }
-
+        setLoading(false)
     }, [])
-
+    
     useEffect(()=>{
         if(checkedCategory){
             const filter = subCategory.filter(sub => 
@@ -86,6 +67,7 @@ const ProductEditor = ({ setMode })=>{
             return setFilteredSub(filter)
         }
     }, [checkedCategory])
+
 
     const createProductBtn = ()=>{
         if(!nameEng || !name || !category || !category_2 || !content || !contentEng){
@@ -163,14 +145,7 @@ const ProductEditor = ({ setMode })=>{
                     <select name="category_2" id="category_2" value={ category_2 } onChange={ handleInput }>
                         {
                             !checkedCategory
-                            ? <>
-                                <option value=''>상위 카테고리를 선택해주세요.</option>
-                                {
-                                    subCategory.map((a, i)=>
-                                        <option key={ i } value={ a.subcategory }>{ a.subcategory }</option>
-                                    )
-                                }
-                            </>
+                            ? <option value=''>상위 카테고리를 선택해주세요.</option>
                             : <>
                                 <option value=''>하위 카테고리를 선택해주세요.</option>
                                 {
@@ -193,16 +168,6 @@ const ProductEditor = ({ setMode })=>{
                 <div className="labelInput">
                     <label className="EditorLabel" htmlFor="pdf">PDF 링크</label>
                     <input className="EditorInput" type="text" value={ pdf } id="pdf" name="pdf" onChange={ handleInput }/>
-                </div>
-                <input type="file" name="images" multiple onChange={ handleImageChange } />
-                <div>
-                    {
-                        images.map((image, index) => (
-                            <div key={index} onClick={() => handleImageRemove(index)}>
-                                <img src={image} alt={`Image ${index}`} onClick={() => handleImageRemove(index)}/>
-                            </div>
-                        ))
-                    }
                 </div>
                 {
                     !state

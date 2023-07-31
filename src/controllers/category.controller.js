@@ -12,17 +12,19 @@ exports.readCategory = async (req, res) => {
         })
 }
 exports.deleteCategory = async (req, res) => {
-    await Category.deleteOne({ category : req.params.category })
-        .then(()=>{
-            res.status(200).json({ message : "Success"})
-        })
-        .catch((err)=>{
-            res.json(err)
-        })
+    const category = req.params.category
+    await Category.deleteOne({ category }).then(()=>{
+        Subcategory.deleteMany({ category })
+            .then(result => res.status(200).json({ message : "Success"}))
+            .catch((err)=>{
+                res.json(err)
+            })
+    }).catch((err)=>{
+        res.json(err)
+    })
 }
 exports.deleteSubcategory = async (req, res) => {
     const { category, subcategory } = req.body
-    console.log(category, subcategory)
     await Subcategory.deleteOne({ category, subcategory })
         .then(()=>{
             res.status(200).json({ message : "Success"})
@@ -32,15 +34,22 @@ exports.deleteSubcategory = async (req, res) => {
         })
 }
 exports.createCategory = async (req, res) => {
-    const category = new Category({
-        category : req.body.category
+    const category = req.body.category
+    await Category.findOne({ category })
+    .then(result =>{
+        if(result){
+            return res.json({ message : "동일명 카테고리 존재"})
+        } else {
+            const category = new Category({
+                category : req.body.category
+            })
+            category.save()
+                .then(()=> {
+                    res.status(200).json({ message : "Success"})
+                })
+                .catch(err => res.json(err))
+        }
     })
-    await category.save()
-        .then(()=> {
-            console.log('category 생성')
-            res.status(200).json({ message : "Success"})
-        })
-        .catch(err => res.json(err))
 }
 exports.readSubcategory = async (req, res) => {
     const { category } = req.body
@@ -53,7 +62,6 @@ exports.readSubcategory = async (req, res) => {
         })
 }
 exports.readAllSubcategory = async (req, res) => {
-    console.log('부카테고리 접속')
     await Subcategory.find()
         .then(result =>{
             res.json(result)
@@ -63,13 +71,24 @@ exports.readAllSubcategory = async (req, res) => {
         })
 }
 exports.createSubcategory = async (req, res) => {
-    const subcategory = new Subcategory({
+    await Subcategory.findOne({        
         category : req.body.category,
         subcategory : req.body.subcategory
     })
-    await subcategory.save()
-        .then(()=> {
-            res.status(200).json({ message : "Success"})
-        })
-        .catch(err => res.json(err))
+    .then(result =>{
+        if(result){
+            return res.json({ message : "동일명 카테고리 존재"})
+        } else {
+            const subcategory = new Subcategory({
+                category : req.body.category,
+                subcategory : req.body.subcategory
+            })
+            subcategory.save()
+                .then(()=> {
+                    res.status(200).json({ message : "Success"})
+                })
+                .catch(err => res.json(err))
+        }
+    })
+    
 }

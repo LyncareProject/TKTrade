@@ -50,7 +50,10 @@ function Header({ setSidebar }) {
                     <Link to='/customer' className='Menu'>
                         <p>CUSTOMER</p>
                     </Link>
-                    <div className='Menu CompanyMenu'>
+                    <Link to='/company' className='Menu'>
+                        <p>COMPANY</p>
+                    </Link>
+                    {/* <div className='Menu CompanyMenu'>
                         <p>COMPANY</p>
                         <div className='CompanySubMenu'>
                             {
@@ -61,7 +64,7 @@ function Header({ setSidebar }) {
                                 )
                             }
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <Search />
             </div>

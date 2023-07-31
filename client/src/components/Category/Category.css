@@ -27,13 +27,20 @@
     padding: 10px 20px;
     border-radius: 10px;
     background-color: #EDEDED;
+    color: #000;
     margin-top : 10px;
     margin-bottom : 10px;
     cursor: pointer;
 }
-.CategoryList:hover {
+.Category .CategoryListActive{
     background-color: #979797;
+}
+.CategoryList:hover {
+    background-color: #cbcbcb;
     transition: all 0.2s;
+}
+.CategoryList button:hover{
+    color: red;
 }
 .CategoryInputWrap {
     width: 100%;

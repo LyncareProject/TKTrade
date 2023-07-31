@@ -4,101 +4,144 @@ import './ProductList.css'
 import { findAllProduct } from "../../service/productService"
 
 const ProductList = ()=>{
-    const [ loading, setLoading ] =  useState(false)
+    const [ loading, setLoading ] = useState(false)
     const [ mainCategory, setMainCategory ] = useState([])
     const [ subCategory, setSubCategory ] = useState([])
     const [ products, setProducts ] = useState([])
+
+    const [ filteredSub, setFilteredSub ] = useState([])
     const [ filteredData, setFilteredData ] = useState([])
 
     const [ checkedCategory, setCheckedCategory ] = useState('')
-    const fatchMainCategory = async ()=>{
+    const [ checkedSubcategory, setCheckedSubcategory ] = useState('')
+    const fetchMainCategory = async ()=>{
         await readCategory()
             .then(response => setMainCategory(response.data))
             .catch(err => console.log(err.messages))
     }
-    const fatchAllSubCategory = async () => {
+    const fetchAllSubCategory = async () => {
         await readAllSubcategory()
             .then(response => setSubCategory(response.data))
             .catch(err => console.log(err.messages))
     }
-    const fatchAllProducts = async () => {
+    const fetchAllProducts = async () => {
         await findAllProduct()
             .then(response => setProducts(response.data))
             .catch(err => console.log(err.messages))
     }
     const handleChecked = ( name )=>{
         setCheckedCategory(name)
+        setCheckedSubcategory('')
     }
     useEffect(()=>{
         setLoading(true)
-        fatchMainCategory()
-        fatchAllSubCategory()
-        fatchAllProducts()
+        fetchMainCategory()
+        fetchAllSubCategory()
+        fetchAllProducts()
         setLoading(false)
     }, [])
 
     useEffect(()=>{
-        if(checkedCategory){
+        if(checkedCategory && !checkedSubcategory){
             const filter = products.filter(product =>
                 product.category === checkedCategory
             )
-            setFilteredData(filter)
+            console.log(filter)
+            return setFilteredData(filter)
         }
-    }, [checkedCategory])
-    // const openSubMenu = ( name )=>{
-    //     fatchSubCategory(name)
-    //     // console.log(subCategory)
-    //     if(checkedCategory === name){
-    //         return (
-    //             <>
-    //             checked
-    //                 {/* {
-    //                     subCategory.map((a, i)=>
-    //                         <div className="Category" key={ i }>{a.category}</div>
-    //                     )
-    //                 } */}
-    //             </>
-    //         )
-    //     }
-    // }
+        if(checkedCategory && checkedSubcategory){
+            const filter = products.filter(product =>
+                product.category_2 === checkedSubcategory
+            )
+            console.log(filter)
+            return setFilteredData(filter)
+        }
+    }, [checkedCategory, checkedSubcategory])
+
+    const openSubMenu = ( name )=>{
+        if(checkedCategory === name){
+            const filter = subCategory.filter(sub => 
+                sub.category === checkedCategory
+            )
+            return (
+                <>
+                {
+                    filter.map((a, i)=>
+                        <div key={ i } className={
+                            a.subcategory === checkedSubcategory
+                            ? "subCategory subCategoryActive"
+                            : "subCategory"
+                        } onClick={()=>{
+                            setCheckedSubcategory(a.subcategory)
+                        }}>
+                            <p>{ a.subcategory }</p>
+                        </div>
+                    )
+                }
+                </>
+            )
+        }
+    }
     return(
         <div className='ProductList'>
             <div className="Wrap">
                 <div className="ControlBar">
-                    <p className="ControlTitle">카테고리</p>
+                    <div className="ControlTitle">PRODUCTS</div>
+                    <div className="Category" onClick={()=>{
+                        setCheckedCategory('')
+                        setCheckedSubcategory('')
+                    }}>전체</div>
                     {
                         mainCategory.map((a, i)=>
                             <div key={ i }>
-                                <div className="Category" onClick={()=>{
+                                <div className={
+                                    a.category === checkedCategory
+                                    ? "Category CategoryActive"
+                                    : "Category"
+                                } onClick={()=>{
                                     handleChecked(a.category)
                                 }}>{a.category}</div>
-                                {/* { openSubMenu(a.category) } */}
+                                { openSubMenu(a.category) }
                             </div>
                         )
                     }
                 </div>
-                <div>
-                    {
-                        !checkedCategory
-                        ? <>
+                <div className="Products">
+                    <div className="ProductsWrap">
+                        {
+                            !checkedCategory
+                            ? <>
+                                {
+                                    products.map((a, i)=>
+                                        <a href={`/product/${ a._id }`} className="Product">
+                                            <div className="ProductImgWrap">
+                                                <img src={`/images/${ a.images[0] }`} alt="" />
+                                            </div>
+                                            <div className="ProductContentsWrap">
+                                                <p className="ProductName">{a.name}</p>
+                                                <p className="ProductName">{a.nameEng}</p>
+                                            </div>
+                                        </a>
+                                    )
+                                }
+                            </>
+                            : <>
                             {
-                                products.map((a, i)=>
-                                    <>
-                                        <p>{a.name}</p>
-                                    </>
+                                filteredData.map((a, i)=>
+                                    <a href={`/product/${ a._id }`} className="Product">
+                                        <div className="ProductImgWrap">
+                                            <img src={`/images/${ a.images[0] }`} alt="" />
+                                        </div>
+                                        <div className="ProductContentsWrap">
+                                            <p className="ProductName">{a.name}</p>
+                                            <p className="ProductName">{a.nameEng}</p>
+                                        </div>
+                                    </a>
                                 )
                             }
                         </>
-                        : <>
-                        {
-                            filteredData.map((a, i)=>
-                                <>
-                                    <p>{a.name}</p>
-                                </>
-                            )
                         }
-                    </>
-                    }
+                    </div>
 
                 </div>
             </div>

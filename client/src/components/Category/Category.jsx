@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { createCategory, createSubcategory, deleteCategory, deleteSubcategory, readCategory, readSubcategory } from "../../service/categoryService"
 import './Category.css'
 
-const Category = ()=>{
+const Category = ({ setMode })=>{
     const [ mainCategory, setMainCategory ] = useState([])
     const [ subCategory, setSubCategory ] = useState([])
     const [ checkedCategory, setCheckedCategory ] = useState('')
@@ -32,15 +32,31 @@ const Category = ()=>{
         })
     }
     const createMainCategory = async ()=>{
-        await createCategory({ category : mainCategoryName }).then(()=>{
-            fatchMainCategory()
-        })
+        await createCategory({ category : mainCategoryName })
+            .then(response => {
+                if(response.data.message === '동일명 카테고리 존재'){
+                    return alert("동일명 카테고리 존재")
+                }
+                setInput({
+                    ...input,
+                    mainCategoryName : ''
+                })
+                fatchMainCategory()
+            })
+            .catch(err => console.log(err.message))
     }
     const createSubCategory = async ()=>{
         await createSubcategory({
             category : checkedCategory,
             subcategory : subCategoryName
-        }).then(()=>{
+        }).then(response =>{
+            if(response.data.message === '동일명 카테고리 존재'){
+                return alert("동일명 카테고리 존재")
+            }
+            setInput({
+                ...input,
+                subCategoryName : ''
+            })
             fatchSubCategory({ category : checkedCategory })
         })
     }
@@ -48,6 +64,7 @@ const Category = ()=>{
         if (window.confirm("상위 카테고리를 삭제하면 하위 카테고리 또한 삭제됩니다.")) {
             await deleteCategory({ category : name })
             .then(()=>{
+                setCheckedCategory('')
                 fatchMainCategory()
             }) 
         } else {
@@ -67,7 +84,9 @@ const Category = ()=>{
             alert("취소되었습니다.");
         }
     }
+
     useEffect(()=>{
+        setMode("category")
         fatchMainCategory()
     }, [])
 
@@ -83,7 +102,11 @@ const Category = ()=>{
                     <div className="CategoryWrap">
                         {
                             mainCategory.map((a, i)=>
-                                <div className="CategoryList" onClick={()=>{
+                                <div className={
+                                    a.category === checkedCategory
+                                    ? "CategoryList CategoryListActive"
+                                    : "CategoryList"
+                                } onClick={()=>{
                                     handleChecked(a.category)
                                 }} key={ i }>
                                     <p>{ a.category }</p>
@@ -95,7 +118,7 @@ const Category = ()=>{
                         }
                     </div>
                     <div className="CategoryInputWrap">
-                        <input type="text" placeholder="상위 카테고리" name="mainCategoryName" onChange={ handleInput }/>
+                        <input type="text" placeholder="상위 카테고리" name="mainCategoryName" value={ mainCategoryName } onChange={ handleInput }/>
                         <button onClick={ createMainCategory }>+</button>
                     </div>
                 </div>
@@ -119,7 +142,7 @@ const Category = ()=>{
                         !checkedCategory
                         ? null
                         : <div className="CategoryInputWrap">
-                            <input type="text" placeholder="하위 카테고리" name="subCategoryName" onChange={ handleInput }/>
+                            <input type="text" placeholder="하위 카테고리" name="subCategoryName" value={ subCategoryName } onChange={ handleInput }/>
                             <button onClick={ createSubCategory }>+</button>
                         </div>
                         

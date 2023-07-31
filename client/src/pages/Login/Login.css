@@ -1,0 +1,35 @@
+.Login {
+    height: calc(100vh - 60px);
+}
+.Login .Wrap {  
+    width: 400px;
+    padding: 80px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.Login .Wrap label {  
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.Login .Wrap input {  
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 5px 20px;
+    margin-bottom: 40px;
+}
+.Login .Wrap button {  
+    width: 100%;
+    background-color: #1289FF;
+    font-size: 18px;
+    color: #FFF;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+.Login .Wrap button:hover {  
+    opacity: 0.7;
+    transition: all 0.2s;
+}

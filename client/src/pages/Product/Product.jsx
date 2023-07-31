@@ -1,15 +1,18 @@
 import './Product.css'
-import data from '../../Data'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { findOneProduct } from '../../service/productService'
 
 const Product = ()=>{
     const { id } = useParams()
     const [ product, setProduct ] = useState()
     const [ mainImage, setMainImage ] = useState()
     useEffect(()=>{
-        setProduct(data[id])
-        setMainImage(data[id].images[0])
+        findOneProduct({ _id : id })
+            .then(response => {
+                setProduct(response.data)
+                setMainImage(response.data.images[0])
+            })
     },[id])
 
     return(
@@ -36,6 +39,7 @@ const Product = ()=>{
                     </div>
                     <div className='Right'>
                         <h3 className='ProductName'>{ product.name }</h3>
+                        <h3 className='ProductName'>{ product.nameEng }</h3>
                         <p className='ProductContent'>{ product.content }</p>
                         <p className='ProductContent'>{ product.contentEng }</p>
                         {
