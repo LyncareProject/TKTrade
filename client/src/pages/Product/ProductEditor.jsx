@@ -34,7 +34,10 @@ const ProductEditor = ({ setMode })=>{
         })
     }
     const handleImageChange = (e) => {
-        // uploadImg(files)
+        const files = e.target.files;
+        const imagesArray = Array.from(files).map((file) => URL.createObjectURL(file));
+        console.log(files)
+        uploadImg({ formData : files })
         // const files = e.target.files;
         // const imagesArray = Array.from(files).map((file) => URL.createObjectURL(file));
         // setInput({

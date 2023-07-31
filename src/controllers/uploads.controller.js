@@ -2,8 +2,9 @@ const path = require('path');
 const fs = require('fs');
 
 exports.uploads = async (req, res) => {
-    const IMG_URL = `/images/${req.file.filename}`
-    res.json({ url: IMG_URL });
+    console.log(req.body)
+    // const IMG_URL = `/images/${req.file.filename}`
+    // res.json({ url: IMG_URL });
 }
 
 exports.delete = async (req, res) => {
