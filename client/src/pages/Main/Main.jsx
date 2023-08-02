@@ -1,9 +1,23 @@
+import { useEffect, useState } from 'react'
 import './Main.css'
-
+import { findAllProduct } from '../../service/productService'
+import testUrl from '../../service/testURL'
 const Main = ()=>{
+    const [ products, setProducts ] = useState([])
+
+    useEffect(()=>{
+        const fetchData = async ()=>{
+            await findAllProduct().then(res=>{
+                const sliceProducts = res.data.slice(0, 6)
+                setProducts(sliceProducts)
+            })
+        }
+        fetchData()
+    },[])
+
     return(
         <div className='Main'>
-            <Section01 />
+            <Section01 products= { products }/>
             <Section02 />
             <Section03 />
             <Section04 />
@@ -11,10 +25,22 @@ const Main = ()=>{
         </div>
     )
 }
-const Section01 = ()=>{
+const Section01 = ({ products })=>{
     return(
         <div className='Wrap'>
-            Section01
+            { 
+                products.map( product =>
+                    <div>
+                        <img src={`${testUrl}/${ product.images[0] }`} alt="" />
+                        <p>{ product.nameEng }</p>
+                        <p>{ product.content }</p>
+                        <p>{ product.contentEng }</p>
+                    </div>
+                )
+            }
+            <div>
+                더보기
+            </div>
         </div>
     )
 }
