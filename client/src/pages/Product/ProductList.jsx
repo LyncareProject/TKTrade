@@ -115,7 +115,7 @@ const ProductList = ()=>{
                                     products.map((a, i)=>
                                         <a href={`/product/${ a._id }`} className="Product">
                                             <div className="ProductImgWrap">
-                                                <img src={`/images/${ a.images[0] }`} alt="" />
+                                                <img src={`/${ a.images[0] }`} alt="" />
                                             </div>
                                             <div className="ProductContentsWrap">
                                                 <p className="ProductName">{a.name}</p>
@@ -130,7 +130,7 @@ const ProductList = ()=>{
                                 filteredData.map((a, i)=>
                                     <a href={`/product/${ a._id }`} className="Product">
                                         <div className="ProductImgWrap">
-                                            <img src={`/images/${ a.images[0] }`} alt="" />
+                                            <img src={`/${ a.images[0] }`} alt="" />
                                         </div>
                                         <div className="ProductContentsWrap">
                                             <p className="ProductName">{a.name}</p>

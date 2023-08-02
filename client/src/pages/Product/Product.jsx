@@ -23,13 +23,13 @@ const Product = ()=>{
                 : <div className='Wrap Container'>
                     <div className='Left'>
                         <div className='ProductImgWrap'>
-                            <img src={`/images/${ mainImage }`} alt="ProductImg"/>
+                            <img src={`/${ mainImage }`} alt="ProductImg"/>
                         </div>
                         <div className='ImgControllerWrap'>
                             {
                                 product.images.map((image, index)=>{
                                     return <div className='ImgController' key={ index }>
-                                            <img src={`/images/${ image }`} alt="ImgController" onClick={()=>{
+                                            <img src={`/${ image }`} alt="ImgController" onClick={()=>{
                                                 setMainImage(image)
                                             }}/>
                                         </div>

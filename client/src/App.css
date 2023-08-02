@@ -39,3 +39,6 @@ body {
 .App {
   position: relative;
 }
+.Hide {
+  display: none;
+}

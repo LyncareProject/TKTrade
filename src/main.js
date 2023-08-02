@@ -8,7 +8,6 @@ const app = require('./app');
 const { PORT } = require('./common')
 const mongo = require('./mongo');
 
-
 mongo.connectToDatabase()
   .then(() => {
     app.listen(PORT, () => {
@@ -20,4 +19,3 @@ mongo.connectToDatabase()
     throw error;
   });
 
-// chat()

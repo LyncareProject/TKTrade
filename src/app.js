@@ -12,8 +12,9 @@ app.use(express.urlencoded({ extended: true }))
 
 const mainRouter = require('./routes/index')
 
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, '/build')));
 app.use(express.static(path.join(__dirname, '../public')));
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
@@ -27,5 +28,9 @@ app.use((err, req, res, next) => {
   res.statusCode = err.statusCode || 500
   res.send(err.message)
 })
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 
 module.exports = app

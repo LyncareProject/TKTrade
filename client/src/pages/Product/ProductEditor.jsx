@@ -3,7 +3,7 @@ import './ProductEditor.css'
 import { readAllSubcategory, readCategory } from "../../service/categoryService";
 import { createProduct, findOneProduct, updateProduct } from "../../service/productService";
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { uploadImg } from "../../service/uploadService";
+import { deleteImg, uploadImg } from "../../service/uploadService";
 
 const ProductEditor = ({ setMode })=>{
     const { state } = useLocation();
@@ -26,35 +26,38 @@ const ProductEditor = ({ setMode })=>{
         images : []
     });
     const { _id, nameEng, name, category, category_2, content, contentEng, pdf, images } = input
-
     const handleInput = (e)=>{
         setInput({
             ...input,
             [ e.target.name ] : e.target.value
         })
     }
-    const handleImageChange = (e) => {
-        const files = e.target.files;
-        const imagesArray = Array.from(files).map((file) => URL.createObjectURL(file));
-        console.log(files)
-        uploadImg({ formData : files })
-        // const files = e.target.files;
-        // const imagesArray = Array.from(files).map((file) => URL.createObjectURL(file));
-        // setInput({
-        //     ...input,
-        //     images : [...images, ...imagesArray]
-        // });
-
-    };
-    const handleImageRemove = (index) => {
-        const newImages = [...images];
-        newImages.splice(index, 1);
-        setInput({
-            ...input,
-            images : newImages
-        });
-    };
-    console.log(input)
+    const handleImage = async (e)=>{
+        const image = e.target.files[0]
+        const formData = new FormData();
+        formData.append('image', image);
+        await uploadImg(formData)
+            .then(res => {
+                setInput({
+                    ...input,
+                    images : [...images, res.data]
+                })
+            })
+    }
+    const handleRemoveImage = async (index)=>{
+        await deleteImg(images[index])
+            .then( response =>{
+                if(response.data.message=== "Deleted"){
+                    const newImages = [...images];
+                    newImages.splice(index, 1);
+                    setInput({
+                        ...input,
+                        images : newImages
+                    })
+                }
+            })
+            .catch(err => console.log(err))
+    }
     const fetchMainCategory = async ()=>{
         await readCategory()
             .then(response => setMainCategory(response.data))
@@ -80,7 +83,6 @@ const ProductEditor = ({ setMode })=>{
         }
 
     }, [])
-
     useEffect(()=>{
         if(checkedCategory){
             const filter = subCategory.filter(sub => 
@@ -89,7 +91,6 @@ const ProductEditor = ({ setMode })=>{
             return setFilteredSub(filter)
         }
     }, [checkedCategory])
-
     const createProductBtn = ()=>{
         if(!nameEng || !name || !category || !category_2 || !content || !contentEng){
             return alert('필수 정보들을 모두 입력해주세요')
@@ -117,6 +118,7 @@ const ProductEditor = ({ setMode })=>{
         if(!nameEng || !name || !category || !category_2 || !content || !contentEng){
             return alert('필수 정보들을 모두 입력해주세요')
         }
+        
         updateProduct({
             _id,
             nameEng,
@@ -197,15 +199,26 @@ const ProductEditor = ({ setMode })=>{
                     <label className="EditorLabel" htmlFor="pdf">PDF 링크</label>
                     <input className="EditorInput" type="text" value={ pdf } id="pdf" name="pdf" onChange={ handleInput }/>
                 </div>
-                <input type="file" name="images" multiple onChange={ handleImageChange } />
-                <div>
+                <h3 className="EditorLabel">이미지</h3>
+                <div className="ImgLists">
                     {
-                        images.map((image, index) => (
-                            <div key={index} onClick={() => handleImageRemove(index)}>
-                                <img src={image} alt={`Image ${index}`} onClick={() => handleImageRemove(index)}/>
+                        images.map((image, index)=>
+                            <div className="ImgWrap" key={ index } onClick={ ()=>{ handleRemoveImage(index) } }>
+                                <img src={`http://localhost:8080/${ image }`} alt="" />
                             </div>
-                        ))
+                        )
                     }
+                    {
+                        images.length === 5
+                        ? null
+                        : <>
+                            <label for="file" className="ImgWrap">
+                                <div class="btn-upload">+</div>
+                            </label>
+                            <input type="file" id="file" className="Hide" onChange={ handleImage } />
+                        </>
+                    }
+                    
                 </div>
                 {
                     !state

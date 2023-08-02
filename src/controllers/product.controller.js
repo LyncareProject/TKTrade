@@ -1,6 +1,7 @@
 const db = require("../models");
 const ObjectId = require("mongoose").Types.ObjectId;
 const { product : Product } = db;
+const path = require('path');
 
 exports.create = async (req, res) => {
     const product = new Product(req.body)
@@ -8,7 +9,17 @@ exports.create = async (req, res) => {
         .then(()=> {
             res.status(200).json({ message : "Success"})
         })
-        .catch(err => res.json(err))    
+        .catch(err => res.json(err))   
+
+    // console.log(imagePaths)
+    // return res.json({ message: 'Images uploaded successfully.', imagePaths });
+
+    // const product = new Product(req.body)
+    // await product.save()
+    //     .then(()=> {
+    //         res.status(200).json({ message : "Success"})
+    //     })
+    //     .catch(err => res.json(err))    
 }
 
 exports.read = async (req, res) => {
