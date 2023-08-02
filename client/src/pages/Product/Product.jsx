@@ -2,6 +2,7 @@ import './Product.css'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { findOneProduct } from '../../service/productService'
+import testUrl from '../../service/testURL.js'
 
 const Product = ()=>{
     const { id } = useParams()
@@ -23,13 +24,13 @@ const Product = ()=>{
                 : <div className='Wrap Container'>
                     <div className='Left'>
                         <div className='ProductImgWrap'>
-                            <img src={`/${ mainImage }`} alt="ProductImg"/>
+                            <img src={`${ testUrl }/${ mainImage }`} alt="ProductImg"/>
                         </div>
                         <div className='ImgControllerWrap'>
                             {
                                 product.images.map((image, index)=>{
                                     return <div className='ImgController' key={ index }>
-                                            <img src={`/${ image }`} alt="ImgController" onClick={()=>{
+                                            <img src={`${ testUrl }/${ image }`} alt="ImgController" onClick={()=>{
                                                 setMainImage(image)
                                             }}/>
                                         </div>

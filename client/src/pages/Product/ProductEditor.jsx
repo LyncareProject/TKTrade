@@ -4,6 +4,7 @@ import { readAllSubcategory, readCategory } from "../../service/categoryService"
 import { createProduct, findOneProduct, updateProduct } from "../../service/productService";
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { deleteImg, uploadImg } from "../../service/uploadService";
+import testUrl from "../../service/testURL";
 
 const ProductEditor = ({ setMode })=>{
     const { state } = useLocation();
@@ -204,7 +205,7 @@ const ProductEditor = ({ setMode })=>{
                     {
                         images.map((image, index)=>
                             <div className="ImgWrap" key={ index } onClick={ ()=>{ handleRemoveImage(index) } }>
-                                <img src={`http://localhost:8080/${ image }`} alt="" />
+                                <img src={`${ testUrl }/${ image }`} alt="" />
                             </div>
                         )
                     }

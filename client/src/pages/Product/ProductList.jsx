@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import {  readCategory, readAllSubcategory } from "../../service/categoryService"
 import './ProductList.css'
 import { findAllProduct } from "../../service/productService"
+import testUrl from "../../service/testURL"
 
 const ProductList = ()=>{
     const [ loading, setLoading ] = useState(false)
@@ -115,7 +116,7 @@ const ProductList = ()=>{
                                     products.map((a, i)=>
                                         <a href={`/product/${ a._id }`} className="Product">
                                             <div className="ProductImgWrap">
-                                                <img src={`/${ a.images[0] }`} alt="" />
+                                                <img src={`${ testUrl }/${ a.images[0] }`} alt="" />
                                             </div>
                                             <div className="ProductContentsWrap">
                                                 <p className="ProductName">{a.name}</p>
@@ -130,7 +131,7 @@ const ProductList = ()=>{
                                 filteredData.map((a, i)=>
                                     <a href={`/product/${ a._id }`} className="Product">
                                         <div className="ProductImgWrap">
-                                            <img src={`/${ a.images[0] }`} alt="" />
+                                            <img src={`${ testUrl }/${ a.images[0] }`} alt="" />
                                         </div>
                                         <div className="ProductContentsWrap">
                                             <p className="ProductName">{a.name}</p>
