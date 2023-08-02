@@ -13,11 +13,18 @@ npm start
 개발시 client/src/service/apiConfig.js 에서 
 const baseUrl = 'http://localhost:8080/api' 설정
 
+개발시 client/src/service/testURL.js 에서 
+const baseUrl = 'http://localhost:8080' 설정
+
 # npm build run
 
 개발 완료 후 
-개발시 client/src/service/apiConfig.js 에서 
+client/src/service/apiConfig.js 에서 
 const baseUrl = '/api' 설정
+
+client/src/service/testURL.js 에서 
+const testURL = '' 설정
+
 npm build run
 
 # Client Pages
