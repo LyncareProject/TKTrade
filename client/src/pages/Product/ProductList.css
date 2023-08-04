@@ -73,9 +73,9 @@
 }
 .ProductList .Wrap .Product {
     /* width: calc(33% - 30px); */
-    margin-left: 25px;
+    margin-left: 24px;
     margin-bottom: 30px;
-    height: 310px;
+    height: auto;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -87,6 +87,7 @@
     height: 188px;
     overflow: hidden;
     border: 1px solid #EAEAEA;
+    box-sizing: border-box;
 }
 .ProductList .Wrap .ProductImgWrap img {
     height: 100%;

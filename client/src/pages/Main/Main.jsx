@@ -56,7 +56,15 @@ const Section02 = ({ products })=>{
                 <p>TK TRADE에서는<br /> 
                     최상의 기능과 품질을 가진<br />
                     제품을 찾아내고 제공합니다.</p>
-
+               </div>
+               <div className='more_menu'>
+                <ul>
+                    <li><a href="">확관툴</a></li>
+                    <li><a href="">튜브확관기</a></li>
+                    <li><a href="">튜브설치도구</a></li>
+                    <li><a href="">소모품</a></li>
+                    <li><a href="">튜브풀러</a></li>
+                </ul>
                </div>
            </div>
        </div>
