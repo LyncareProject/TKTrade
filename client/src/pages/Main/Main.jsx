@@ -4,6 +4,7 @@ import { findAllProduct } from '../../service/productService'
 import testUrl from '../../service/testURL'
 import Product from '../../components/Product/Product'
 import Main_img from '../../assets/images/Tk_main_bg.png'
+import Main_img_m from '../../assets/images/Tk_main_bg_m.png'
 
 const Main = ()=>{
     const [ products, setProducts ] = useState([])
@@ -19,7 +20,7 @@ const Main = ()=>{
     },[])
 
     return(
-        <div className='Main'>
+        <div  className='Main'>
             <Section01 />
             <Section02 products= { products }/>
             <Section03 />
@@ -30,8 +31,9 @@ const Main = ()=>{
 }
 const Section01 = ()=>{
     return(
-        <div className='Main_bg' >
-             <p><img src={ Main_img } alt="Logo" /></p>  
+        <div className='Main_bg , wrap_m' >
+             <p className='Main_img'><img src={ Main_img } alt="Logo" /></p>  
+             <p className='Main_img_m'><img src={ Main_img_m } alt="Logo" /></p>  
             <div className='Main_txt'>
              <h2>TK TRADE</h2>
              <h3>Orbital welding machines and Etc Rental, Order</h3>
@@ -41,7 +43,7 @@ const Section01 = ()=>{
 }
 const Section02 = ({ products })=>{
     return(
-        <div className='Wrap , Wrap_flex , Wrap2'>
+        <div className='Wrap , Wrap_flex , Wrap2 , wrap_m'>
            { 
                products.map( product =>
                    <div className='product'>
@@ -49,7 +51,7 @@ const Section02 = ({ products })=>{
                    </div>
                )
            }
-           <div>
+           <div className='more_s'>
                <div className='more'>
                 <h2>More Products &nbsp;&nbsp;&nbsp; <span>  &gt; </span></h2>
                 <h3>더 많은 제품 보기</h3>
@@ -72,7 +74,7 @@ const Section02 = ({ products })=>{
 }
 const Section03 = ()=>{
     return(
-        <div className='Wrap, Wrap2'>
+        <div className='Wrap , Wrap2 , wrap_m'>
            <div className='section_con'>
                 <div>
                     <p><img src="" alt="" /></p>
@@ -104,7 +106,7 @@ const Section03 = ()=>{
 }
 const Section04 = ()=>{
     return(
-        <div className='Wrap, Wrap2'>
+        <div className='Wrap , Wrap2 , Wrap_m'>
            <div className='section_con'>
               <div className='section_con_2, section_con_3'>
                  <h2>견적문의</h2>
@@ -132,7 +134,7 @@ const Section04 = ()=>{
 }
 const Section05 = ()=>{
     return(
-        <div className='Wrap, Wrap2'>
+        <div className='Wrap , Wrap2 , Wrap_m'>
             <div className='section_con_5'>
                 <div className='section_con_5_1'>
                     <h3>회사소개</h3>

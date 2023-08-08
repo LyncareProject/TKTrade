@@ -22,7 +22,7 @@ const Footer = ()=>{
                         </div>
                       
                     </div>
-                    <div>
+                    <div className='footer_address_1_2'>
                         <p><span>개인정보처리방침</span></p>
                     </div>
                 </div>

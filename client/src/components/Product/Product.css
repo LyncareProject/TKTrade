@@ -1,5 +1,7 @@
 
-
+.ProductContentsWrap{
+    width: 212px;
+}
 
 .product .product_Tit{
     font-size: 16px;

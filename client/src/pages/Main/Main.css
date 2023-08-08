@@ -1,3 +1,4 @@
+
 /* section1 */
 .Main_txt{
     position: relative;
@@ -30,6 +31,13 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.Main_img{
+    display: block;
+}
+.Main_img_m{
+    display: none;
 }
 
 /* section2 */
@@ -199,3 +207,131 @@
     color: #fff;
     padding: 12px 15px;
 }
+@media (max-width: 939px) {
+    /* 화면 100% */
+    .Wrap_m , .Wrap , .Wrap2{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .section_con img{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* section1  */
+    .Main_bg{
+        margin-bottom: -80px;
+    }
+    .Main_img{
+        display: none;
+    }
+    .Main_img_m{
+        display: block;
+        width: 100%;
+    }
+    .Main_txt{
+        width: 100%;
+        padding: 10px;
+        bottom: 172px;
+    }
+ 
+
+    /* section2 제품나열 */
+
+    .product{
+        width: 50%;
+        padding: 10px;
+    }
+    .product img{
+        width: 100%;
+    }
+    .product p{
+        display:none;
+    }
+    .product .product_Tit{
+        display:block;
+    }
+
+    .more_s{
+        width: 50%;
+        padding: 10px;
+    }
+    .more{
+        width: 100%;
+    }
+    .more h3{
+        margin-top: 10px;
+    }
+    .more p{
+        display: none;
+    }
+    .more_menu{
+        width: 100%;
+    }
+
+    /* section3 */
+    .section_con{
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 0;
+    }
+    .section_con div{
+        width: 100%;
+    }
+    .section_con_2{
+        border: 1px solid #eee;
+        padding: 10px;
+    }
+    .section_con_3{
+        height: 142px;
+    }
+
+    /* section4 */
+    .section_con_4{
+        display: block;
+        height: 185px;
+    }
+    .section_con_4_2{
+        position: unset;
+        margin: 16px auto;
+    }
+
+    /* section5 회사소개 */
+    .section_con_5{
+        height: 220px;
+        background-size: cover;
+        padding: 0 15px;
+        margin: 0;
+    
+    }
+    .section_con_5_1{
+        padding-top: 10px;
+        margin: 0;
+    }
+    .section_con_5_2{
+        position: unset;
+        margin: 17px auto;
+    }
+
+    /* footer */
+    .footer_address{
+        display: block;
+        border: none;
+    }
+    .footer_logo img{
+        margin-left: 10px;
+    }
+    .footer_address_1, .footer_address_2{
+        display: block;
+    }
+    .footer_address_1_2 span {
+        display: block;
+        width: 151px;
+    }
+    .copyright {
+        margin-left:10px;
+    }
+  }
+  
