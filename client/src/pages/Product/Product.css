@@ -65,3 +65,39 @@
     font-size: 16px;
     font-weight: 400;
 }
+
+
+@media (max-width: 939px) {
+    .Product .Wrap{
+        display: block;
+        width: 100%;
+    }
+    .Product .Wrap .Left{
+        width: 100%;
+    }
+    .ImgController{
+        width: 24%;
+        margin-bottom: -16px;
+    }
+    .Product .Wrap .Right{
+        width: 90%;
+        margin-top:15px;
+        padding: 10px;
+    }
+    .ProductContent{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .Wrap_flex {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    .product { 
+        width: 46%;
+       border: 1px solid #eee;
+       border-radius: 10px;
+       margin-bottom: 11px;
+       height: auto;
+    }
+}

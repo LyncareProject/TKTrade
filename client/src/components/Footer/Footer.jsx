@@ -5,7 +5,7 @@ const Footer = ()=>{
     return(
         <div className='Footer'>
            
-            <div className='Wrap , Wrap2'>
+            <div className='Wrap , Wrap2 , Footer_text'>
                 <hr />
                 <p className='footer_logo'><img src={ Footer_logo } alt="Footer_Logo" /></p>  
                 <div className='footer_address'>

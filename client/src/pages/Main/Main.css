@@ -321,17 +321,21 @@
         border: none;
     }
     .footer_logo img{
-        margin-left: 10px;
+        margin-left: 15px;
     }
     .footer_address_1, .footer_address_2{
         display: block;
+        margin-left: 10px;
     }
     .footer_address_1_2 span {
         display: block;
         width: 151px;
+        margin-left: 10px;
     }
     .copyright {
-        margin-left:10px;
+        margin-left:20px;
     }
+    
+
   }
   

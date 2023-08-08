@@ -105,3 +105,48 @@
     font-size: 15px;
     font-weight: 400;
 }
+
+@media (max-width: 939px) {
+    .ProductList .Wrap{
+        display: block;
+        margin: 0 auto;
+    }
+    .ProductName{
+        margin-bottom: 10px;
+    }
+    .ProductList .Wrap .ControlBar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .ProductList .Wrap .Products{
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    .ProductList .Wrap .ProductImgWrap{
+        width: 100%;
+        margin-bottom: 5px;
+        margin-top: 7px;
+    }
+    .ProductList .Wrap .ProductsWrap{
+        display: block;
+        margin: 0 auto;
+    }
+    .ProductList .Wrap .Product{
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        padding: 0;
+    }
+    .ProductList .Wrap .ProductContentsWrap{
+        height: auto;
+    }
+    .ProductList .Wrap .ProductName{
+        margin-bottom: 10px;
+    }
+    .Footer hr{
+        margin-top: 20px;
+    }
+}
