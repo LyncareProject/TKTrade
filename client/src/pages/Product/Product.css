@@ -66,8 +66,20 @@
     font-weight: 400;
 }
 
+@media (max-width: 939px){
+    .Product .Wrap .Left{
+        width: calc(55% - 30px);
+    }
+    .Product .Wrap .Right{
+        width: calc(45% - 30px);
+    }
+    .ImgController{
+        width: calc(24% - 10px);
+    }
+}
 
-@media (max-width: 939px) {
+
+@media (max-width: 500px) {
     .Product .Wrap{
         display: block;
         width: 100%;
