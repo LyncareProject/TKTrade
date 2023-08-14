@@ -110,6 +110,7 @@
        border: 1px solid #eee;
        border-radius: 10px;
        margin-bottom: 11px;
-       height: auto;
+       box-sizing: border-box;
+      
     }
 }

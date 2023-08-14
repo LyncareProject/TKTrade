@@ -207,6 +207,7 @@
     color: #fff;
     padding: 12px 15px;
 }
+
 @media (max-width: 939px) {
     /* 화면 100% */
     .Wrap_m , .Wrap , .Wrap2{
@@ -240,7 +241,7 @@
     /* section2 제품나열 */
 
     .product{
-        width: 50%;
+        width: 40%;
         padding: 10px;
     }
     .product img{
@@ -254,7 +255,7 @@
     }
 
     .more_s{
-        width: 50%;
+        width: 40%;
         padding: 10px;
     }
     .more{
@@ -268,6 +269,9 @@
     }
     .more_menu{
         width: 100%;
+    }
+    .Wrap_flex{
+        justify-content: space-evenly;
     }
 
     /* section3 */
@@ -337,5 +341,19 @@
     }
     
 
+  }
+
+  @media (max-width: 500px) {
+    .Main_bg{
+        margin-bottom: -120px;
+    }
+    .product{
+        width: 50%;
+        box-sizing: border-box;
+    }
+    .more_s{
+        width: 46%;
+        padding: 2px;
+    }
   }
   
