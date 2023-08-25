@@ -1,6 +1,15 @@
-
+.product > div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+}
 .ProductContentsWrap{
     width: 212px;
+    height: 100px;
+
 }
 
 .product .product_Tit{

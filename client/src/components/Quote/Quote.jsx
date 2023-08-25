@@ -66,7 +66,7 @@ const Quote = ()=>{
             <div className='QuoteBtn' onClick={()=>{
                 setQuote(!quote)
             }}>
-                <p>Get a Quote</p>
+                <p>CONTACT</p>
             </div>
         </div>
     )

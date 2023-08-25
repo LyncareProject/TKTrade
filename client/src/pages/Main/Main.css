@@ -43,6 +43,15 @@
 /* section2 */
 .product {    
     width: 223px;
+    height: 418px;
+    margin-bottom: 50px;
+    padding: 10px;
+    cursor: pointer;
+    /* box-sizing: border-box; */
+}
+.product:hover {    
+    border: 3px solid #3289FF;
+    border-radius: 10px;
 }
 .product img{
     width: 223px;

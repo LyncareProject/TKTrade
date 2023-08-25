@@ -1,0 +1,72 @@
+.Contact {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 80px 0;
+}
+
+.ContactInputWrap {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.ContactDivision {
+    width: calc(50% - 50px);
+}
+.ContactInputTitle {
+    margin-bottom: 20px;
+}
+.ContactInputSubWrap {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.ContactInputDivision {
+    width: calc(50% - 20px);
+    border: 1px solid #777;
+    background-color: #EDEDED;
+    border-radius: 5px;
+    padding: 7px 15px;
+    font-size: 16px;
+}
+.ContactInput {
+    width: 100%;
+    border: 1px solid #777;
+    background-color: #EDEDED;
+    border-radius: 5px;
+    padding: 7px 15px;
+    font-size: 16px;
+}
+.ContactTextArea {
+    width: 100%;
+    height: 250px;
+    max-height: 250px;
+    border: 1px solid #777;
+    background-color: #EDEDED;
+    border-radius: 5px;
+    padding: 7px 15px;
+    font-size: 16px;
+}
+.SendBtn {
+    float: right;
+    color: #FFF;
+    border: 1px solid #777;
+    background-color: #184D9D;
+    border-radius: 5px;
+    padding: 7px 15px;
+    font-size: 16px;
+}
+.SendBtn:hover {
+    opacity: 0.8;
+    transition: all 0.3s;
+}
+.ContactTitle {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.ContactText {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 100px;
+}

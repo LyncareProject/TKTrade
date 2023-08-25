@@ -32,11 +32,11 @@ const Main = ()=>{
 const Section01 = ()=>{
     return(
         <div className='Main_bg , wrap_m' >
-             <p className='Main_img'><img src={ Main_img } alt="Logo" /></p>  
-             <p className='Main_img_m'><img src={ Main_img_m } alt="Logo" /></p>  
+                <p className='Main_img'><img src={ Main_img } alt="Logo" /></p>  
+                <p className='Main_img_m'><img src={ Main_img_m } alt="Logo" /></p>  
             <div className='Main_txt'>
-             <h2>TK TRADE</h2>
-             <h3>Orbital welding machines and Etc Rental, Order</h3>
+                <h2>TK TRADE</h2>
+                <h3>Orbital welding machines and Etc Rental, Order</h3>
             </div>
         </div>
     )
@@ -44,32 +44,32 @@ const Section01 = ()=>{
 const Section02 = ({ products })=>{
     return(
         <div className='Wrap , Wrap_flex , Wrap2 , wrap_m'>
-           { 
-               products.map( product =>
-                   <div className='product'>
-                       <Product product = {product} testUrl={testUrl}/>
-                   </div>
-               )
-           }
-           <div className='more_s'>
-               <div className='more'>
-                <h2>More Products &nbsp;&nbsp;&nbsp; <span>  &gt; </span></h2>
-                <h3>더 많은 제품 보기</h3>
-                <p>TK TRADE에서는<br /> 
-                    최상의 기능과 품질을 가진<br />
-                    제품을 찾아내고 제공합니다.</p>
-               </div>
-               <div className='more_menu'>
-                <ul>
-                    <li><a href="">확관툴</a></li>
-                    <li><a href="">튜브확관기</a></li>
-                    <li><a href="">튜브설치도구</a></li>
-                    <li><a href="">소모품</a></li>
-                    <li><a href="">튜브풀러</a></li>
-                </ul>
-               </div>
-           </div>
-       </div>
+            { 
+                products.map( product =>
+                    <div className='product'>
+                        <Product product = {product} testUrl={testUrl}/>
+                    </div>
+                )
+            }
+            <div className='more_s'>
+                <div className='more'>
+                    <h2>More Products &nbsp;&nbsp;&nbsp; <span>  &gt; </span></h2>
+                    <h3>더 많은 제품 보기</h3>
+                    <p>TK TRADE에서는<br /> 
+                        최상의 기능과 품질을 가진<br />
+                        제품을 찾아내고 제공합니다.</p>
+                </div>
+                <div className='more_menu'>
+                    <ul>
+                        <li><a href="">확관툴</a></li>
+                        <li><a href="">튜브확관기</a></li>
+                        <li><a href="">튜브설치도구</a></li>
+                        <li><a href="">소모품</a></li>
+                        <li><a href="">튜브풀러</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     )
 }
 const Section03 = ()=>{

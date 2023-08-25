@@ -29,9 +29,9 @@ function Header({ setSidebar }) {
                 </div>
 
                 <div className='MenuList'>
-                    <Link to='/' className='Menu'>
-                        <p>HOME</p>
-                    </Link>
+                    {/* <Link to='/' className='Menu'>
+                        <p>MAIN</p>
+                    </Link> */}
                     <Link to='/product' className='Menu'>
                         <p>PRODUCTS</p>
                     </Link>
@@ -47,11 +47,11 @@ function Header({ setSidebar }) {
                             }
                         </div>
                     </div> */}
-                    <Link to='/customer' className='Menu'>
-                        <p>CUSTOMER</p>
+                    <Link to='/contact' className='Menu'>
+                        <p>CONTACT</p>
                     </Link>
-                    <Link to='/company' className='Menu'>
-                        <p>COMPANY</p>
+                    <Link to='/profile' className='Menu'>
+                        <p>PROFILE</p>
                     </Link>
                     {/* <div className='Menu CompanyMenu'>
                         <p>COMPANY</p>
