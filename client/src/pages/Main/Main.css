@@ -61,7 +61,7 @@
     line-height: 1.8;
     margin-top: 5px;
     font-size: 16px;
-    font-weight: 800;
+    font-weight: 600;
 }
 .product p{
     font-weight: normal;
@@ -83,7 +83,7 @@
 .more h2 {
     font-size: 20px;
     padding-top: 10px;
-    font-weight: 800;
+    font-weight: 600;
     
 }
 .more h3{
@@ -97,7 +97,7 @@
 .more_menu li{
     height: 46px;
     font-size: 16px;
-    font-weight: 800;
+    font-weight: 600;
     border: 1px solid #EAEAEA;
     box-sizing: border-box;
     padding: 11px 18px;
@@ -123,7 +123,7 @@
 }
 .section_con_2 h2{
     font-size: 33px;
-    font-weight: 800;
+    font-weight: 600;
   
     margin-bottom: 17px;
 }
@@ -144,7 +144,7 @@
 }
 .section_con_3 h2{
     font-size: 33px;
-    font-weight: 800;
+    font-weight: 600;
 }
 .section_con_3 p{
     margin-top: 18px;
@@ -178,7 +178,7 @@
     padding: 12px 15px;
 }
 .section_con_4_2 span{
-    font-weight: 800;
+    font-weight: 600;
 }
 
 /* section5 */

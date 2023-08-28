@@ -1,6 +1,10 @@
 @font-face {
     font-family: 'Pretendard';
-    src: url('../../assets/fonts/Pretendard-Medium.woff') format('woff');
+    src: url('../../assets/fonts/Pretendard-Medium.woff') format('woff'),
+     url('../../assets/fonts/Pretendard-Medium.woff2') format('woff');
+    font-family: 'Pretendard_Bold';
+    
+    src: url('../../assets/fonts/Pretendard-Bold.woff') format('woff');
 }
 .Wrap{
     width: 940px;
@@ -24,7 +28,7 @@
 
 .About_p2{
     font-size: 16px;
-    font-weight:900;
+    font-family: "Pretendard_Bold";
 }
 .About_line{
     width: 122px;
