@@ -27,13 +27,17 @@ function Header({ setSidebar }) {
                         <img src={ Logo } alt="Logo" />
                     </Link>
                 </div>
+                
 
                 <div className='MenuList'>
-                    {/* <Link to='/' className='Menu'>
-                        <p>MAIN</p>
-                    </Link> */}
+                    <Link to='/' className='Menu'>
+                        <p>Main</p>
+                    </Link>
+
+                    
+
                     <Link to='/product' className='Menu'>
-                        <p>PRODUCTS</p>
+                        <p>Product</p>
                     </Link>
                     {/* <div className='Menu ProductsMenu'>
                         <p>PRODUCTS</p>
@@ -47,12 +51,21 @@ function Header({ setSidebar }) {
                             }
                         </div>
                     </div> */}
+
                     <Link to='/contact' className='Menu'>
-                        <p>CONTACT</p>
+                        <p>Contact us</p>
                     </Link>
+
                     <Link to='/profile' className='Menu'>
-                        <p>PROFILE</p>
+                        <p>Profile</p>
                     </Link>
+                    
+                    {/* <Link to='/customer' className='Menu'>
+                         <p>CUSTOMER</p> 
+                        <p>Contact</p>
+
+                    </Link> */}
+                    
                     {/* <div className='Menu CompanyMenu'>
                         <p>COMPANY</p>
                         <div className='CompanySubMenu'>

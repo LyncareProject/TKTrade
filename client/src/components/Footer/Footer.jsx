@@ -6,7 +6,7 @@ const Footer = ()=>{
         <div className='Footer'>
            
             <div className='Wrap , Wrap2 , Footer_text'>
-                <hr />
+                <hr className='hr_hidden' />
                 <p className='footer_logo'><img src={ Footer_logo } alt="Footer_Logo" /></p>  
                 <div className='footer_address'>
                     <div className='footer_address1'>

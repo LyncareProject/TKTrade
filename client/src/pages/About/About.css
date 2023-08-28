@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Pretendard';
+    src: url('../../assets/fonts/Pretendard-Medium.woff') format('woff');
+}
+.Wrap{
+    width: 940px;
+}
+.About_h3{
+    width: 940px;
+    height: 202px;
+    color:#fff;
+    line-height: 202px;
+    background-color: #3189FF;
+    font-size: 26px;
+    text-indent: 44px;
+    margin-bottom: 26px;
+}
+.About_p1{
+ 
+    margin-top: 26px;
+    margin-bottom: 52px;
+}
+
+.About_p2{
+    font-size: 16px;
+    font-weight:900;
+}
+.About_line{
+    width: 122px;
+    margin-top: 13px;
+    margin-bottom: 180px;
+    border-top: 1px solid #707070;
+}
