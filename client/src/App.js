@@ -18,6 +18,7 @@ import AdminBar from './pages/Admin/AdminBar';
 import Contact from './pages/Contact/Contact';
 import About from './pages/About/About';
 import Sending from './components/Sending/Sending';
+import Reference from './pages/Reference/Reference';
 
 function App() {
   const [ sidebar, setSidebar ] = useState(false)
@@ -41,6 +42,7 @@ function App() {
         <Route path='/product/' element={<ProductList />} />
         <Route path='/product/:id' element={<Product />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/reference' element={<Reference />} />
         <Route path='/contact' element={<Contact setSending={ setSending } />} />
         <Route path='/admin' element={
           !isLogined
