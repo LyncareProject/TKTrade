@@ -7,11 +7,10 @@
     src: url('../../assets/fonts/Pretendard-Bold.woff') format('woff');
 }
 .Wrap{
-    width: 940px;
     font-family: 'Pretendard';
 }
 .About_h3{
-    width: 940px;
+    width: 100%;
     height: 202px;
     color:#fff;
     line-height: 202px;
@@ -35,4 +34,11 @@
     margin-top: 13px;
     margin-bottom: 180px;
     border-top: 1px solid #707070;
+}
+@media (max-width: 939px) {
+    .About_Wrap{
+        width: 100%;
+        margin: 0 auto;
+        padding: 10px;
+    }
 }

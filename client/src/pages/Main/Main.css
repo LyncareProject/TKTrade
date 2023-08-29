@@ -2,7 +2,7 @@
 /* section1 */
 .Main_txt{
     position: relative;
-    max-width: 980px;
+    max-width: 940px;
     margin: 0 auto;
     color: #fff;
     bottom:135px
@@ -219,7 +219,8 @@
 
 @media (max-width: 939px) {
     /* 화면 100% */
-    .Wrap_m , .Wrap , .Wrap2{
+     .Wrap_m , .Wrap , .Wrap2{
+        
         width: 100%;
         margin: 0 auto;
     }
@@ -257,7 +258,7 @@
         width: 100%;
     }
     .product p{
-        display:none;
+       
     }
     .product .product_Tit{
         display:block;
@@ -274,7 +275,7 @@
         margin-top: 10px;
     }
     .more p{
-        display: none;
+     
     }
     .more_menu{
         width: 100%;
@@ -353,6 +354,7 @@
   }
 
   @media (max-width: 500px) {
+  
     .Main_bg{
         margin-bottom: -120px;
     }

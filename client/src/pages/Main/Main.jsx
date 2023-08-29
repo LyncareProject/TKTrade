@@ -55,17 +55,17 @@ const Section02 = ({ products })=>{
                 <div className='more'>
                     <h2>More Products &nbsp;&nbsp;&nbsp; <span>  &gt; </span></h2>
                     <h3>더 많은 제품 보기</h3>
-                    <p>TK TRADE에서는<br /> 
-                        최상의 기능과 품질을 가진<br />
-                        제품을 찾아내고 제공합니다.</p>
+                    <p>At TK TRADE with the best function and quality Find and deliver products.
+                    <br />
+                    </p>
                 </div>
                 <div className='more_menu'>
                     <ul>
-                        <li><a href="">확관툴</a></li>
-                        <li><a href="">튜브확관기</a></li>
-                        <li><a href="">튜브설치도구</a></li>
-                        <li><a href="">소모품</a></li>
-                        <li><a href="">튜브풀러</a></li>
+                        <li><a href="">TUBE EXPANDERS</a></li>
+                        <li><a href="">TUBE EXPANDING M/C</a></li>
+                        <li><a href="">INSTALLATION TOOLS</a></li>
+                        <li><a href="">TUBE PULLERS</a></li>
+                        <li><a href="">ACCESORIES</a></li>
                     </ul>
                 </div>
             </div>
@@ -80,27 +80,27 @@ const Section03 = ()=>{
                     <p><img src="" alt="" /></p>
                 </div>
                 <div className='section_con_2'>
-                 <h2>작업컨설팅</h2>
-                 <p>정보이엔지의 오비탈 용접기는 튜브 대 튜브 와 튜브 대 튜브시트, 인보어용
-                    접에 사용할 수 있습니다.</p>
-                 <p>Orbital welding machines of JEONG BO ENG are used
-                    in Tube to tube, Tube to Tube-sheet and internal bore
-                    welding.</p>
+                 <h2>Consulting</h2>
+                 <p>&nbsp;  </p>
+                 <p>TK always support your idea.</p>
+                 {/* <p>정보이엔지의 오비탈 용접기는 튜브 대 튜브 와 튜브 대 튜브시트, 인보어용
+                    접에 사용할 수 있습니다.</p> */}
                 </div>
            </div>
-           <div className='section_con'>
+          {/*  <div className='section_con'>
                 <div>
                     <p><img src="" alt="" /></p>
                 </div>
                 <div className='section_con_2'>
                  <h2>RENTAL</h2>
-                 <p>정보이엔지의 오비탈 용접기는 튜브 대 튜브 와 튜브 대 튜브시트, 인보어용
-                    접에 사용할 수 있습니다.</p>
+                 <p>&nbsp; </p>
                  <p>Orbital welding machines of JEONG BO ENG are used
                     in Tube to tube, Tube to Tube-sheet and internal bore
                     welding.</p>
+                 <p>정보이엔지의 오비탈 용접기는 튜브 대 튜브 와 튜브 대 튜브시트, 인보어용
+                    접에 사용할 수 있습니다.</p> 
                 </div>
-           </div>
+           </div>*/}
         </div>
     )
 }
@@ -109,26 +109,28 @@ const Section04 = ()=>{
         <div className='Wrap , Wrap2 , Wrap_m'>
            <div className='section_con'>
               <div className='section_con_2, section_con_3'>
-                 <h2>견적문의</h2>
-                 <p>정보이엔지의 오비탈 용접기는 튜브 대 튜브 와 튜브 대 튜브시트, 인보어용접에 사용할 수 있습니다.</p>
+                 <h2>Contact us</h2>
+                 <p>&nbsp;  </p>
+                 <p>All inquiries will meet in 3-days from the skilled worker.</p>
                  {/* <p></p> */}
               </div>
               <div className='section_con_2, section_con_3'>
-                 <h2>자료실</h2>
-                 <p>정보이엔지의 오비탈 용접기는 튜브 대 튜브 와 튜브 대 튜브시트, 인보어용접에 사용할 수 있습니다.</p>
+                 <h2>Reference room</h2>
+                 <p>&nbsp;  </p>
+                 <p>Please find qualified & recommeded items within TK</p>
                  {/* <p></p> */}
               </div>
            </div>
-           <div className='section_con_4'>
+           {/* <div className='section_con_4'>
                 <div className='section_con_4_1'>
                     <p>TK TRADE 카탈로그입니다</p>
                     <p>단일 플랫폼에서 지능형 자산 관리, 모니터링, 예측 유지보수 및 신뢰성 제공</p>
                 </div>
                 <div className='section_con_4_2'>
-                    <p>자세히보기 </p>
+                    <p>Read More</p>
                     <p><span> &gt; </span></p>
                 </div>
-           </div>
+           </div> */}
         </div>
     )
 }
@@ -137,12 +139,12 @@ const Section05 = ()=>{
         <div className='Wrap , Wrap2 , Wrap_m'>
             <div className='section_con_5'>
                 <div className='section_con_5_1'>
-                    <h3>회사소개</h3>
-                    <p>TK TRADE 카탈로그입니다</p>
-                    <p>단일 플랫폼에서 지능형 자산 관리, 모니터링, 예측 유지보수 및 신뢰성 제공</p>
+                    <h3>Company profile</h3>
+                    <p>&nbsp;   </p>
+                    <p>TK will serve all kind of Korean tools at your requirement</p>
                 </div>
                 <div className='section_con_5_2'>
-                    <p>자세히보기 </p>
+                    <p>Read More</p>
                     <p><span> &gt; </span></p>
                 </div>
            </div>
