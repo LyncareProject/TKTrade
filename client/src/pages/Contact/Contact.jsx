@@ -73,10 +73,10 @@ const Contact = ({ setSending })=>{
                 <button className='SendBtn' onClick={ sendBtn }>Send</button>
             </div>
             <div className='ContactDivision'>
-                <h3 className='ContactTitle'>우리는 당신을 위해 여기 있습니다.</h3>
-                <p className='ContactText'>제안을 원하시거나 간단한 질문이 있으시면 저희에게 연락하십시오.<br /><br />귀하의 연락을 기다리고 있습니다.</p>
                 <h3 className='ContactTitle'>We are here for you.</h3>
                 <p className='ContactText'>If you want any suggestions or have any simple questions, please contact us.<br /><br />We are looking forward to hearing from you.</p>
+                <h3 className='ContactTitle'>우리는 당신을 위해 여기 있습니다.</h3>
+                <p className='ContactText'>제안을 원하시거나 간단한 질문이 있으시면 저희에게 연락하십시오.<br /><br />귀하의 연락을 기다리고 있습니다.</p>
             </div>
         </div>
     )

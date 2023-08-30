@@ -5,8 +5,8 @@ const Product = ({ product, testUrl })=>{
         <div>
             <img src={`${testUrl}/${ product.images[0] }`} alt="" />
             <p className='product_Tit'>{ product.nameEng }</p>
-            <p>{ product.content }</p>
             <p>{ product.contentEng }</p>
+            <p>{ product.content }</p>
         </div>
     )
 }

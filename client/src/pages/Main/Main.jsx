@@ -5,6 +5,7 @@ import testUrl from '../../service/testURL'
 import Product from '../../components/Product/Product'
 import Main_img from '../../assets/images/Tk_main_bg.png'
 import Main_img_m from '../../assets/images/Tk_main_bg_m.png'
+import Consulting from '../../assets/images/Consulting.png'
 
 const Main = ()=>{
     const [ products, setProducts ] = useState([])
@@ -51,7 +52,7 @@ const Section02 = ({ products })=>{
                     </div>
                 )
             }
-            <div className='more_s'>
+            <a href='/product' className='more_s'>
                 <div className='more'>
                     <h2>More Products &nbsp;&nbsp;&nbsp; <span>  &gt; </span></h2>
                     <h3>더 많은 제품 보기</h3>
@@ -68,7 +69,7 @@ const Section02 = ({ products })=>{
                         <li><a href="">ACCESORIES</a></li>
                     </ul>
                 </div>
-            </div>
+            </a>
         </div>
     )
 }
@@ -77,12 +78,12 @@ const Section03 = ()=>{
         <div className='Wrap , Wrap2 , wrap_m'>
            <div className='section_con'>
                 <div>
-                    <p><img src="" alt="" /></p>
+                    <p><img src={ Consulting } alt="consulting" /></p>
                 </div>
                 <div className='section_con_2'>
                  <h2>Consulting</h2>
                  <p>&nbsp;  </p>
-                 <p>TK always support your idea.</p>
+                 <p>TK Trade always support your idea.</p>
                  {/* <p>정보이엔지의 오비탈 용접기는 튜브 대 튜브 와 튜브 대 튜브시트, 인보어용
                     접에 사용할 수 있습니다.</p> */}
                 </div>
@@ -108,18 +109,18 @@ const Section04 = ()=>{
     return(
         <div className='Wrap , Wrap2 , Wrap_m'>
            <div className='section_con'>
-              <div className='section_con_2, section_con_3'>
+              <a href="/contact" className='section_con_2, section_con_3'>
                  <h2>Contact us</h2>
                  <p>&nbsp;  </p>
                  <p>All inquiries will meet in 3-days from the skilled worker.</p>
                  {/* <p></p> */}
-              </div>
-              <div className='section_con_2, section_con_3'>
+              </a>
+              <a href="/reference" className='section_con_2, section_con_3'>
                  <h2>Reference room</h2>
                  <p>&nbsp;  </p>
                  <p>Please find qualified & recommeded items within TK</p>
                  {/* <p></p> */}
-              </div>
+              </a>
            </div>
            {/* <div className='section_con_4'>
                 <div className='section_con_4_1'>
@@ -143,10 +144,10 @@ const Section05 = ()=>{
                     <p>&nbsp;   </p>
                     <p>TK will serve all kind of Korean tools at your requirement</p>
                 </div>
-                <div className='section_con_5_2'>
+                <a href='/profile' className='section_con_5_2'>
                     <p>Read More</p>
                     <p><span> &gt; </span></p>
-                </div>
+                </a>
            </div>
         </div>
     )

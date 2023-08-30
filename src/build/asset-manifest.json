@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.275a431a.css",
+    "main.js": "/static/js/main.38fb3a1f.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/Tk_main_bg.png": "/static/media/Tk_main_bg.42d61ece27aa3cf74ffb.png",
+    "static/media/Tk_About_us.png": "/static/media/Tk_About_us.31f661616838d79a9f7e.png",
+    "static/media/Tk_main_bg_m.png": "/static/media/Tk_main_bg_m.ea85503cbb8838fa4bdd.png",
+    "static/media/Pretendard-Bold.woff": "/static/media/Pretendard-Bold.dd56301118da9e158ce9.woff",
+    "static/media/Pretendard-Medium.woff": "/static/media/Pretendard-Medium.f0cc544dcc84cf9f03b3.woff",
+    "static/media/Pretendard-Bold.woff2": "/static/media/Pretendard-Bold.14a8579db02dbe10e1c0.woff2",
+    "static/media/Pretendard-Medium.woff2": "/static/media/Pretendard-Medium.a0797964917555a35cc4.woff2",
+    "static/media/TK_footer_logo.png": "/static/media/TK_footer_logo.6e15301a1fd27ca609c3.png",
+    "index.html": "/index.html",
+    "main.275a431a.css.map": "/static/css/main.275a431a.css.map",
+    "main.38fb3a1f.js.map": "/static/js/main.38fb3a1f.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.275a431a.css",
+    "static/js/main.38fb3a1f.js"
+  ]
+}

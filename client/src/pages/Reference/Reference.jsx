@@ -18,12 +18,18 @@ const Reference = ()=>{
                 !data
                 ? null
                 : <div className="ReferenceWrap Wrap">
-                    <p>제품명</p>
-                    {
-                        data.map((item, index)=>
-                            <a href={ item.pdf }>{ item.nameEng }</a>
-                        )
-                    }
+                    <div className="PDFListWrap">
+                        <div className="PDFHead">
+                            <p>Product Catalogue</p>
+                        </div>
+                        {
+                            data.map((item, index)=>
+                            <a href={ item.pdf } className="PDFList">                        
+                                <p>{ item.nameEng }</p>
+                            </a>
+                            )
+                        }
+                    </div>
                 </div>
             }
         </div>

@@ -53,7 +53,7 @@ function Header({ setSidebar }) {
                     </div> */}
 
                     <Link to='/contact' className='Menu'>
-                        <p>Contact us</p>
+                        <p>Contact</p>
                     </Link>
 
                     <Link to='/profile' className='Menu'>
