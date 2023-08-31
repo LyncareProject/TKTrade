@@ -6,10 +6,10 @@ import Product from '../../components/Product/Product'
 import Main_img from '../../assets/images/Tk_main_bg.png'
 import Main_img_m from '../../assets/images/Tk_main_bg_m.png'
 import Consulting from '../../assets/images/Consulting.png'
+import { useNavigate } from 'react-router-dom';
 
 const Main = ()=>{
-    const [ products, setProducts ] = useState([])
-
+    const [ products, setProducts ] = useState([]);
     useEffect(()=>{
         const fetchData = async ()=>{
             await findAllProduct().then(res=>{
@@ -43,33 +43,44 @@ const Section01 = ()=>{
     )
 }
 const Section02 = ({ products })=>{
+    const navigate = useNavigate();
     return(
         <div className='Wrap , Wrap_flex , Wrap2 , wrap_m'>
             { 
-                products.map( product =>
-                    <div className='product'>
+                products.map((product, index) =>
+                    <a href={`/product/${ product._id }`} className='product' key={ index }>
                         <Product product = {product} testUrl={testUrl}/>
-                    </div>
+                    </a>
                 )
             }
-            <a href='/product' className='more_s'>
-                <div className='more'>
+            <div className='more_s'>
+                <a href='/product' className='more'>
                     <h2>More Products &nbsp;&nbsp;&nbsp; <span>  &gt; </span></h2>
                     <h3>더 많은 제품 보기</h3>
                     <p>At TK TRADE with the best function and quality Find and deliver products.
                     <br />
                     </p>
-                </div>
+                </a>
                 <div className='more_menu'>
                     <ul>
-                        <li><a href="">TUBE EXPANDERS</a></li>
-                        <li><a href="">TUBE EXPANDING M/C</a></li>
-                        <li><a href="">INSTALLATION TOOLS</a></li>
-                        <li><a href="">TUBE PULLERS</a></li>
-                        <li><a href="">ACCESORIES</a></li>
+                        <li onClick={()=>{
+                            navigate('/product', { state : "확관툴"})
+                        }}><p>TUBE EXPANDERS</p></li>
+                        <li onClick={()=>{
+                            navigate('/product', { state : "튜브확관기"})
+                        }}><a href="">TUBE EXPANDING M/C</a></li>
+                        <li onClick={()=>{
+                            navigate('/product', { state : "튜브설치도구"})
+                        }}><a href="">INSTALLATION TOOLS</a></li>
+                        <li onClick={()=>{
+                            navigate('/product', { state : "튜브풀러"})
+                        }}><a href="">TUBE PULLERS</a></li>
+                        <li onClick={()=>{
+                            navigate('/product', { state : "소모품"})
+                        }}><a href="">ACCESORIES</a></li>
                     </ul>
                 </div>
-            </a>
+            </div>
         </div>
     )
 }
