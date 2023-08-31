@@ -37,10 +37,36 @@
 }
 .ProductEditor .ImgLists {
     display: flex;
+    margin-bottom: 30px;
 }
 .ProductEditor .ImgWrap {
     width: 200px;
     height: 200px;
     border: 1px solid #000;
     margin-right: 30px;
+}
+.PDFInput {
+    display: none;
+}
+.uploadPDF {
+    text-align: center;
+    width: 150px;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #EDEDED;
+    cursor: pointer;
+}
+.PDFDeleteWrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.deletePDF {
+    font-weight: 600;
+    color: red;
+    box-sizing: border-box;
+    margin-left: 10px;
+    cursor: pointer;
 }

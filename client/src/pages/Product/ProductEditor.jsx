@@ -5,6 +5,7 @@ import { createProduct, findOneProduct, updateProduct } from "../../service/prod
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { deleteImg, uploadImg } from "../../service/uploadService";
 import testUrl from "../../service/testURL";
+import { deletePDF, uploadPDF } from "../../service/pdfService";
 
 const ProductEditor = ({ setMode })=>{
     const { state } = useLocation();
@@ -27,6 +28,7 @@ const ProductEditor = ({ setMode })=>{
         pdf : "",
         images : []
     });
+    console.log(input)
     const { _id, nameEng, name, category, category_2, content, contentEng, pdf, images } = input
 
     const handleInput = (e)=>{
@@ -39,6 +41,7 @@ const ProductEditor = ({ setMode })=>{
         const image = e.target.files[0]
         const formData = new FormData();
         formData.append('image', image);
+        console.log(formData)
         await uploadImg(formData)
             .then(res => {
                 setInput({
@@ -61,7 +64,34 @@ const ProductEditor = ({ setMode })=>{
             })
             .catch(err => console.log(err))
     }
+    const handlePDF = async (e)=>{
+        const pdfFile = e.target.files[0]
+        const pdfData = new FormData();
+        pdfData.append('pdfFile', pdfFile);
+        await uploadPDF(pdfData)
+            .then(res =>
+                setInput({
+                    ...input,
+                    pdf : [...pdf, `/${res.data}`]
+                })
+            )
+            .catch(err => console.log(err))
+    }
+    const handleDeletePDF = async ()=>{
+        let _pdf = pdf
+        console.log(_pdf)
+        const filename = _pdf[0].replace('/uploads/', '');
+        console.log(filename)
+        await deletePDF(filename)
+            .then(()=>{
+                setInput({
+                    ...input,
+                    pdf : ''
+                })
+            })
+            .catch(err => console.log(err))
 
+    }
     useEffect(()=>{
         setLoading(true)
         setMode('product')
@@ -181,13 +211,14 @@ const ProductEditor = ({ setMode })=>{
                             !checkedCategory
                             ? <select name="category_2" id="category_2" value={ category_2 } onChange={ handleInput }>
                                 <option value=''>상위 카테고리를 선택해주세요.</option>
-                                {
+                                {/* {
                                     subCategory.map((category, index)=>
                                         <option key={ index } value={ category.subcategory }>{ category.subcategory }</option>
                                     )
-                                }
+                                } */}
                             </select>
                             : <select name="category_2" id="category_2" value={ category_2 } onChange={ handleInput }>
+                            <option value=''>하위 카테고리를 선택해주세요.</option>
                             {
                                 filteredSub.map((category, index)=>
                                     <option key={ index } value={ category.subcategory }>{ category.subcategory }</option>
@@ -206,8 +237,17 @@ const ProductEditor = ({ setMode })=>{
                         <textarea name="contentEng" id="contentEng" cols="30" rows="10" value={ contentEng } onChange={ handleInput }></textarea>
                     </div>
                     <div className="labelInput">
-                        <label className="EditorLabel" htmlFor="pdf">PDF 링크</label>
-                        <input className="EditorInput" type="text" value={ pdf } id="pdf" name="pdf" onChange={ handleInput }/>
+                        <p className="EditorLabel">PDF</p>
+                        <label className="EditorLabel uploadPDF" htmlFor="pdf">파일 업로드</label>
+                        <input className="PDFInput" type="file" accept=".pdf" id="pdf" onChange={ handlePDF } />
+                        <div className="PDFDeleteWrap">
+                            <p>{ pdf }</p>
+                            {
+                                !pdf
+                                ? null
+                                : <button className="deletePDF" onClick={ handleDeletePDF }>X</button>
+                            }
+                        </div>
                     </div>
                     <h3 className="EditorLabel">이미지</h3>
                     <div className="ImgLists">
