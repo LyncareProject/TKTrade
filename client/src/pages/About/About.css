@@ -35,10 +35,19 @@
     margin-bottom: 180px;
     border-top: 1px solid #707070;
 }
-@media (max-width: 939px) {
+@media (max-width: 979px) {
     .About_Wrap{
         width: 100%;
         margin: 0 auto;
         padding: 10px;
+    }
+}
+@media (max-width: 500px){
+    .About_h3{
+        height: 101px;
+        line-height: 101px;
+    }
+    .About_line{
+        margin-bottom: 30px;
     }
 }

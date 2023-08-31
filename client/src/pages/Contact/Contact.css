@@ -70,3 +70,21 @@
     font-weight: 400;
     margin-bottom: 100px;
 }
+
+@media (max-width: 500px){
+    .Contact{
+        display: block;
+    }
+    .ContactDivision {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .SendBtn{
+        padding: 6px 15px;
+    }
+    .ContactText{
+        margin-bottom: 30px;
+    }
+    
+
+}

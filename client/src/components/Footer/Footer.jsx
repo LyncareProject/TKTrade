@@ -18,15 +18,15 @@ const Footer = ()=>{
                         </div>
                         <div className='footer_address_2'>
                             <p>Company Registration Number : 357-04-01714</p>
-                            <p>ADDRESS : 1767, Saneop-ro, Oedong-eup, Gyeongju-si, Gyeongsangbuk-do, Republic of Korea</p>
+                            <p>ADDRESS : 1767, Sanup-Ro, Ueidong-Eup, Gyeongju-si, Republic of Korea</p>
                         </div>
                       
                     </div>
                     <div className='footer_address_1_2'>
-                        <p><span>개인정보처리방침</span></p>
+                        {/* <p><span>개인정보처리방침</span></p> */}
                     </div>
                 </div>
-                <p className='copyright'>Copyrightⓒ 2023 TKtrade All Reserved</p>
+                <p className='copyright'>Copyrightⓒ TK-Trade All Rights Reserved</p>
             </div>
         </div>
     )

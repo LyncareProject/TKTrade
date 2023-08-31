@@ -217,6 +217,10 @@
     padding: 12px 15px;
 }
 
+/* 퀵메뉴 */
+.Quote{
+    z-index: 1000;
+}
 @media (max-width: 939px) {
     /* 화면 100% */
      .Wrap_m , .Wrap , .Wrap2{
@@ -299,7 +303,9 @@
         padding: 10px;
     }
     .section_con_3{
-        height: 142px;
+        display: block;
+        width: 100%;
+        height: 154px;
     }
 
     /* section4 */
@@ -365,6 +371,10 @@
     .more_s{
         width: 46%;
         padding: 2px;
+    }
+
+    .section_con_3{
+        height: auto;
     }
   }
   

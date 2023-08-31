@@ -14,28 +14,28 @@ const Sidebar = ({
         {
             href: '/',
             icon: faHouse,
-            name : 'HOME'
+            name : 'Main'
         }, 
         {
-            href: '/',
+            href: '/Product',
             icon : faWrench,
-            name : 'PRODUCTS'
+            name : 'Product'
         }, 
         {
-            href: '/',
+            href: '/Contact',
             icon : faUsers,
-            name : 'CUSTOMER'
+            name : 'Contact'
         }, 
         {
-            href: '/',
+            href: '/Profile',
             icon : faIndustry,
-            name : 'COMPANY'
+            name : 'Profile'
         }, 
-        {
-            href: '/',
-            icon : faEnvelope,
-            name : 'PRODUCT INQUIRIES'
-        }, 
+        // {
+        //     href: '/',
+        //     icon : faEnvelope,
+        //     name : 'PRODUCT INQUIRIES'
+        // }, 
     ]
     return(
         <div>
