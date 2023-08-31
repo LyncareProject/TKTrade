@@ -71,6 +71,7 @@
 
 /* 제품더보기 more  */
 .more{
+    display: block;
     width: 223px;
     height: 188px;
     background-color: #3189FF;

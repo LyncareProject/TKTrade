@@ -2,7 +2,7 @@ import './About.css'
 const About = ()=>{
     return (
         <div>
-            <div className="Wrap About_Wrap">
+            <div id='About_Wrap' className="Wrap About_Wrap">
                 <h3 className='About_h3'>ABOUT</h3>
                 <p>We, establish for the purpose to contribute a part of the quality items worldwide, especially to whom engage for a plant<br /> which is related with Condensor, Boiler, Air-conditioner, Air Fin-cooler, Heat Exchanger fabricator.<br />
                 Please enjoy any material here and You can find the Qualified Tube expanders, Beveling-machine, Expanding-machine on time through our seasoned experiences.<br />

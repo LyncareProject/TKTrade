@@ -1,4 +1,5 @@
-const baseUrl = '/api';
-// const baseUrl = 'http://localhost:8080/api';
+import testUrl from './testURL'
+
+const baseUrl = `${testUrl}/api`;
 
 export default baseUrl;

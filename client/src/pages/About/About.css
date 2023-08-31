@@ -1,33 +1,37 @@
 @font-face {
-    font-family: 'Pretendard';
-    src: url('../../assets/fonts/Pretendard-Medium.woff') format('woff'),
-     url('../../assets/fonts/Pretendard-Medium.woff2') format('woff');
-    font-family: 'Pretendard_Bold';
-    
-    src: url('../../assets/fonts/Pretendard-Bold.woff') format('woff');
+    font-family: 'haram';
+    src: url('../../assets/fonts/haram.woff') format('woff');
+   
 }
-.Wrap{
-    font-family: 'Pretendard';
+
+#About_Wrap{
+    font-family: 'haram';
 }
 .About_h3{
     width: 100%;
     height: 202px;
     color:#fff;
     line-height: 202px;
-    background-color: #3189FF;
-    font-size: 26px;
+    background-image: url(../../../public/images/about.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-size: 40px;
     text-indent: 44px;
     margin-bottom: 26px;
+
+}
+#About_Wrap p{
+    font-size: 22px;
 }
 .About_p1{
- 
+    font-size: 28px;
     margin-top: 26px;
-    margin-bottom: 52px;
+    margin-bottom: 52px;font-family: "haram";
 }
 
 .About_p2{
-    font-size: 16px;
-    font-family: "Pretendard_Bold";
+    font-size: 30px;
+    font-family: "haram";
 }
 .About_line{
     width: 122px;

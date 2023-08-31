@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react"
+import { useLocation } from 'react-router-dom';
 import {  readCategory, readAllSubcategory } from "../../service/categoryService"
 import './ProductList.css'
 import { findAllProduct } from "../../service/productService"
 import testUrl from "../../service/testURL"
 
 const ProductList = ()=>{
-    const [ loading, setLoading ] = useState(false)
+    const { state } = useLocation();
+    const [ loading, setLoading ] = useState(true)
     const [ mainCategory, setMainCategory ] = useState([])
     const [ subCategory, setSubCategory ] = useState([])
     const [ products, setProducts ] = useState([])
-
+    console.log(products)
     const [ filteredSub, setFilteredSub ] = useState([])
     const [ filteredData, setFilteredData ] = useState([])
 
@@ -34,6 +36,7 @@ const ProductList = ()=>{
         setCheckedCategory(name)
         setCheckedSubcategory('')
     }
+
     useEffect(()=>{
         setLoading(true)
         fetchMainCategory()
@@ -41,20 +44,26 @@ const ProductList = ()=>{
         fetchAllProducts()
         setLoading(false)
     }, [])
-
+    useEffect(()=>{
+        if(products && state){
+            setCheckedCategory(state)
+            const filter = products.filter(product =>
+                product.category === checkedCategory
+            )
+            setFilteredData(filter)
+        }
+    }, [products, state])
     useEffect(()=>{
         if(checkedCategory && !checkedSubcategory){
             const filter = products.filter(product =>
                 product.category === checkedCategory
             )
-            console.log(filter)
             return setFilteredData(filter)
         }
         if(checkedCategory && checkedSubcategory){
             const filter = products.filter(product =>
                 product.category_2 === checkedSubcategory
             )
-            console.log(filter)
             return setFilteredData(filter)
         }
     }, [checkedCategory, checkedSubcategory])
@@ -67,8 +76,8 @@ const ProductList = ()=>{
             return (
                 <>
                 {
-                    filter.map((a, i)=>
-                        <div key={ i } className={
+                    filter.map((a, index)=>
+                        <div key={ index } className={
                             a.subcategory === checkedSubcategory
                             ? "subCategory subCategoryActive"
                             : "subCategory"
@@ -108,12 +117,31 @@ const ProductList = ()=>{
                     }
                 </div>
                 <div className="Products">
-                    <div className="ProductsWrap">
-                        {
-                            !checkedCategory
-                            ? <>
+                    {
+                        loading
+                        ? null
+                        :
+                        <div className="ProductsWrap">
+                            {
+                                !checkedCategory
+                                ? <>
+                                    {
+                                        products.map((a, i)=>
+                                            <a href={`/product/${ a._id }`} className="Product" key={ i }>
+                                                <div className="ProductImgWrap">
+                                                    <img src={`${ testUrl }/${ a.images[0] }`} alt="" />
+                                                </div>
+                                                <div className="ProductContentsWrap">
+                                                    <p className="ProductName">{a.nameEng}</p>
+                                                    <p className="ProductName">{a.name}</p>
+                                                </div>
+                                            </a>
+                                        )
+                                    }
+                                </>
+                                : <>
                                 {
-                                    products.map((a, i)=>
+                                    filteredData.map((a, i)=>
                                         <a href={`/product/${ a._id }`} className="Product">
                                             <div className="ProductImgWrap">
                                                 <img src={`${ testUrl }/${ a.images[0] }`} alt="" />
@@ -126,24 +154,9 @@ const ProductList = ()=>{
                                     )
                                 }
                             </>
-                            : <>
-                            {
-                                filteredData.map((a, i)=>
-                                    <a href={`/product/${ a._id }`} className="Product">
-                                        <div className="ProductImgWrap">
-                                            <img src={`${ testUrl }/${ a.images[0] }`} alt="" />
-                                        </div>
-                                        <div className="ProductContentsWrap">
-                                            <p className="ProductName">{a.name}</p>
-                                            <p className="ProductName">{a.nameEng}</p>
-                                        </div>
-                                    </a>
-                                )
                             }
-                        </>
-                        }
-                    </div>
-
+                        </div>
+                    }
                 </div>
             </div>
         </div>
