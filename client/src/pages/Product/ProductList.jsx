@@ -132,8 +132,8 @@ const ProductList = ()=>{
                                                     <img src={`${ testUrl }/${ a.images[0] }`} alt="" />
                                                 </div>
                                                 <div className="ProductContentsWrap">
-                                                    <p className="ProductName">{a.name}</p>
                                                     <p className="ProductName">{a.nameEng}</p>
+                                                    <p className="ProductName">{a.name}</p>
                                                 </div>
                                             </a>
                                         )

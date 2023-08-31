@@ -64,19 +64,19 @@ const Section02 = ({ products })=>{
                 <div className='more_menu'>
                     <ul>
                         <li onClick={()=>{
-                            navigate('/product', { state : "확관툴"})
+                            navigate('/product', { state : "TUBE EXPANDERS"})
                         }}><p>TUBE EXPANDERS</p></li>
                         <li onClick={()=>{
-                            navigate('/product', { state : "튜브확관기"})
+                            navigate('/product', { state : "TUBE EXPANDING M/C"})
                         }}><a href="">TUBE EXPANDING M/C</a></li>
                         <li onClick={()=>{
-                            navigate('/product', { state : "튜브설치도구"})
+                            navigate('/product', { state : "INSTALLATION TOOLS"})
                         }}><a href="">INSTALLATION TOOLS</a></li>
                         <li onClick={()=>{
-                            navigate('/product', { state : "튜브풀러"})
+                            navigate('/product', { state : "TUBE PULLERS"})
                         }}><a href="">TUBE PULLERS</a></li>
                         <li onClick={()=>{
-                            navigate('/product', { state : "소모품"})
+                            navigate('/product', { state : "ACCESORIES"})
                         }}><a href="">ACCESORIES</a></li>
                     </ul>
                 </div>

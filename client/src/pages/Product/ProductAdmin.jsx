@@ -43,7 +43,7 @@ const ProductAdmin = ({ setMode })=>{
                 {
                     products.map((product, index)=>
                         <div className="Product" key={ index }>
-                            <p>{ product.name }</p>
+                            <p>{ product.name } ( { product.nameEng } )</p>
                             <div className="ProductBtn">
                                 <button onClick={()=>{
                                     navigate('/admin/editor', { state : product._id })

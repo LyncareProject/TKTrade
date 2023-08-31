@@ -129,7 +129,7 @@ const ProductEditor = ({ setMode })=>{
     },[checkedCategory])
 
     const createProductBtn = ()=>{
-        if(!nameEng || !name || !category || !category_2 || !content || !contentEng){
+        if(!nameEng || !category ){
             return alert('필수 정보들을 모두 입력해주세요')
         }
         createProduct({
@@ -152,7 +152,7 @@ const ProductEditor = ({ setMode })=>{
             .catch(err => alert(err.message.message))
     }
     const updateProductBtn = ()=>{
-        if(!nameEng || !name || !category || !category_2 || !content || !contentEng){
+        if(!nameEng || !category ){
             return alert('필수 정보들을 모두 입력해주세요')
         }
         
@@ -188,11 +188,11 @@ const ProductEditor = ({ setMode })=>{
                         <input className="EditorInput" type="text" value={ name } id="name" name="name" onChange={ handleInput }/>
                     </div>
                     <div className="labelInput">
-                        <label className="EditorLabel" htmlFor="nameEng">영문명</label>
+                        <label className="EditorLabel" htmlFor="nameEng">영문명 <span className="Red">*</span></label>
                         <input className="EditorInput" type="text" value={ nameEng } id="nameEng" name="nameEng" onChange={ handleInput }/>
                     </div>
                     <div className="labelInput">
-                        <label className="EditorLabel" htmlFor="category">카테고리 대분류</label>
+                        <label className="EditorLabel" htmlFor="category">카테고리 대분류 <span className="Red">*</span></label>
                         <select name="category" id="category" value={ category } onChange={(e)=>{
                             setCheckedCategory(e.target.value)
                             handleInput(e)
