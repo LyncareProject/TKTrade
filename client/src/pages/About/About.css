@@ -1,11 +1,14 @@
 @font-face {
-    font-family: 'haram';
-    src: url('../../assets/fonts/haram.woff') format('woff');
+    font-family: 'Fuzzy';
+    src: url('../../assets/fonts/FuzzyBubbles-Regular.woff') format('woff');
+   
+    font-family: 'Inkfree';
+    src: url('../../assets/fonts/Inkfree.woff') format('woff');
    
 }
 
-#About_Wrap{
-    font-family: 'haram';
+#About_Wrap {
+    font-family: 'Inkfree';
 }
 .About_h3{
     width: 100%;
@@ -21,17 +24,17 @@
 
 }
 #About_Wrap p{
-    font-size: 22px;
+    font-size: 20px;
 }
 .About_p1{
     font-size: 28px;
     margin-top: 26px;
-    margin-bottom: 52px;font-family: "haram";
+    margin-bottom: 52px;font-family: "Inkfree";
 }
 
 .About_p2{
     font-size: 30px;
-    font-family: "haram";
+    font-family: "Inkfree";
 }
 .About_line{
     width: 122px;

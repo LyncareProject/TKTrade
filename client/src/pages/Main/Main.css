@@ -372,6 +372,25 @@
     .more_s{
         width: 46%;
         padding: 2px;
+        
+    }
+    .more_s h2{
+        font-size: 17px;
+    }
+    .more_s h2 span{
+       position: absolute;
+       margin-left: -9px;
+    }
+    .more_s h3{
+        display: none;
+    }
+    .more p{
+        padding-top: 25px;
+    }
+
+    .more_menu li{
+        font-size: 13px;
+        line-height: 22px;
     }
 
     .section_con_3{
