@@ -71,9 +71,16 @@
     margin-bottom: 100px;
 }
 
+@media (max-width: 939px){
+    .Contact{
+        width: 90%;
+    }
+}
+
 @media (max-width: 500px){
     .Contact{
         display: block;
+        width: 95%;
     }
     .ContactDivision {
         width: 90%;
