@@ -108,9 +108,9 @@
     font-size: 15px;
     font-weight: 400;
 }
-@media (max-width: 939px){
+@media (max-width: 958px){
     .ProductList .Wrap .ControlBar{
-        width: 152px;
+        width: 200px;
     }
     .ProductList .Wrap{
         justify-content: center;
@@ -127,6 +127,12 @@
     }
 
 }
+@media (max-width: 865px){
+    .ProductList .Wrap .ControlBar{
+        width: 330px;
+    }
+}
+
 @media (max-width: 500px) {
     .ProductList .Wrap{
         display: block;
