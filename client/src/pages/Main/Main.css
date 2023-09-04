@@ -262,9 +262,9 @@
     .product img{
         width: 100%;
     }
-    .product p{
+    /* .product p{
        
-    }
+    } */
     .product .product_Tit{
         display:block;
     }
@@ -279,9 +279,9 @@
     .more h3{
         margin-top: 10px;
     }
-    .more p{
+    /* .more p{
      
-    }
+    } */
     .more_menu{
         width: 100%;
     }
@@ -380,6 +380,7 @@
     }
     .more_s h2{
         font-size: 17px;
+        padding: 10px  10px 0;
     }
     .more_s h2 span{
        position: absolute;
@@ -390,8 +391,15 @@
     }
 
     .more_menu li{
+        height: auto;
         font-size: 13px;
         line-height: 22px;
+        padding: 11px 10px;
+    }
+    .more p{
+        padding-top: 0px;
+        margin-top: 17px;
+        padding: 0 10px;
     }
 
   
