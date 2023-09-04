@@ -21,6 +21,7 @@
 .PDFList {
     display: block;
     display: flex;
+    justify-content: space-between;
     font-size: 18px;
     width: 100%;
     padding: 10px 30px;
@@ -33,7 +34,6 @@
     border-bottom: none;
 }
 .PDFList::after{
-
     content: "";
     display: block;
     background-image: url(../../../public/images/pdf_download.png);
@@ -42,6 +42,4 @@
     width: 40px;
     height: 35px;   
     margin-left: 20px;
- 
- 
 }

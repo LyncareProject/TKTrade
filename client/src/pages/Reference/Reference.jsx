@@ -24,9 +24,16 @@ const Reference = ()=>{
                         </div>
                         {
                             data.map((item, index)=>
-                            <a href={ item.pdf } className="PDFList">                        
-                                <p>{ item.nameEng }</p>
-                            </a>
+                            <>
+                                {               
+                                    !item.pdf
+                                    ? null
+                                    :             
+                                    <a href={ item.pdf } className="PDFList">                        
+                                        <p>{ item.nameEng }</p>
+                                    </a>
+                                }
+                            </>
                             )
                         }
                     </div>
