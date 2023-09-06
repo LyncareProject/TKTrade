@@ -3,16 +3,18 @@ import baseUrl from './apiConfig';
 
 export const postEmail = ({
         name,
-        company,
         phone,
         email,
+        company,
+        country,
         products
     }) => {
     return axios.post(`${baseUrl}/email`, {
         name,
-        company,
         phone,
         email,
+        company,
+        country,
         products
     });
 };

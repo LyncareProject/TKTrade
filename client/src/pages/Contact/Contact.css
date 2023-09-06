@@ -1,26 +1,53 @@
-.Contact {
+.ContactWrap {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-direction: row;
-    padding: 80px 0;
+    padding-top: 50px;
 }
 
+.ContactBanner {
+    width: 100%;
+    background-image: url('../../assets/images/ContactBanner.png');
+    padding: 50px 30px; 
+    color: #FFF;
+}
+.ContactBanner > h3{
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.ContactBanner > p {
+    font-size: 16px;
+    line-height: 1.75em;
+}
 .ContactInputWrap {
     width: 100%;
     margin-bottom: 30px;
 }
 
 .ContactDivision {
-    width: calc(50% - 50px);
+    width: calc(50% - 20px);
 }
 .ContactInputTitle {
     margin-bottom: 20px;
 }
 .ContactInputSubWrap {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    margin-bottom: 30px;
 }
+.ContactInputSubWrap > div{
+    width: calc(50% - 10px);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.ContactInputSubWrap > div > input {
+    width: 100%;
+}
+
 .ContactInputDivision {
     width: calc(50% - 20px);
     border: 1px solid #777;
@@ -39,8 +66,8 @@
 }
 .ContactTextArea {
     width: 100%;
-    height: 250px;
-    max-height: 250px;
+    height: 382px;
+    max-height: 382px;
     border: 1px solid #777;
     background-color: #EDEDED;
     border-radius: 5px;
@@ -68,24 +95,28 @@
 .ContactText {
     font-size: 16px;
     font-weight: 400;
-    margin-bottom: 100px;
+    margin-bottom: 10px;
 }
 
 @media (max-width: 939px){
     .Contact{
-        width: 90%;
-         justify-content: space-evenly;
+        width: 100%;
+        justify-content: space-evenly;
     }
+    
 }
 
 @media (max-width: 500px){
     .Contact{
-        display: block;
-        width: 95%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        padding: 30px 0;
     }
     .ContactDivision {
-        width: 90%;
+        width: 95%;
         margin: 0 auto;
+        margin-bottom: 50px;
     }
     .SendBtn{
         padding: 6px 15px;
@@ -93,6 +124,14 @@
     .ContactText{
         margin-bottom: 30px;
     }
-    
-
+}
+@media (max-width: 768px){
+    .ContactWrap {
+        padding: 30px 16px;
+        flex-direction: column;
+    }
+    .ContactDivision {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }

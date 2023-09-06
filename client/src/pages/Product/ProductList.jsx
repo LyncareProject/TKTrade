@@ -4,14 +4,13 @@ import {  readCategory, readAllSubcategory } from "../../service/categoryService
 import './ProductList.css'
 import { findAllProduct } from "../../service/productService"
 import testUrl from "../../service/testURL"
+import Card from "../../components/Card/Card";
 
 const ProductList = ()=>{
-    const { state } = useLocation();
     const [ loading, setLoading ] = useState(true)
     const [ mainCategory, setMainCategory ] = useState([])
     const [ subCategory, setSubCategory ] = useState([])
     const [ products, setProducts ] = useState([])
-    console.log(products)
     const [ filteredSub, setFilteredSub ] = useState([])
     const [ filteredData, setFilteredData ] = useState([])
 
@@ -44,15 +43,7 @@ const ProductList = ()=>{
         fetchAllProducts()
         setLoading(false)
     }, [])
-    useEffect(()=>{
-        if(products && state){
-            setCheckedCategory(state)
-            const filter = products.filter(product =>
-                product.category === checkedCategory
-            )
-            setFilteredData(filter)
-        }
-    }, [products, state])
+
     useEffect(()=>{
         if(checkedCategory && !checkedSubcategory){
             const filter = products.filter(product =>
@@ -96,11 +87,11 @@ const ProductList = ()=>{
         <div className='ProductList'>
             <div className="Wrap">
                 <div className="ControlBar">
-                    <div className="ControlTitle">PRODUCTS</div>
+                    <div className="ControlTitle" >PRODUCTS</div>
                     <div className="Category" onClick={()=>{
                         setCheckedCategory('')
                         setCheckedSubcategory('')
-                    }}>전체</div>
+                    }}>ALL</div>
                     {
                         mainCategory.map((a, i)=>
                             <div key={ i }>
@@ -126,31 +117,19 @@ const ProductList = ()=>{
                                 !checkedCategory
                                 ? <>
                                     {
-                                        products.map((a, i)=>
-                                            <a href={`/product/${ a._id }`} className="Product" key={ i }>
-                                                <div className="ProductImgWrap">
-                                                    <img src={`${ testUrl }/${ a.images[0] }`} alt="" />
-                                                </div>
-                                                <div className="ProductContentsWrap">
-                                                    <p className="ProductName">{a.nameEng}</p>
-                                                    <p className="ProductName">{a.name}</p>
-                                                </div>
-                                            </a>
+                                        products.map((product, index)=>
+                                            <div className='CardWrap' key={ index }>
+                                                <Card product={ product }/>
+                                            </div>
                                         )
                                     }
                                 </>
                                 : <>
                                 {
-                                    filteredData.map((a, i)=>
-                                        <a href={`/product/${ a._id }`} className="Product">
-                                            <div className="ProductImgWrap">
-                                                <img src={`${ testUrl }/${ a.images[0] }`} alt="" />
-                                            </div>
-                                            <div className="ProductContentsWrap">
-                                                <p className="ProductName">{a.name}</p>
-                                                <p className="ProductName">{a.nameEng}</p>
-                                            </div>
-                                        </a>
+                                    filteredData.map((product, index)=>
+                                        <div className='CardWrap' key={ index }>
+                                            <Card product={ product }/>
+                                        </div>
                                     )
                                 }
                             </>
