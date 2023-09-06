@@ -1,5 +1,5 @@
 .Quote {
-    position: absolute;
+    position: fixed;
     top: 100px;
     left: 0;
     display: flex;

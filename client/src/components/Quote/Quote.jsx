@@ -13,7 +13,7 @@ const Quote = ({ setSending })=>{
         products : ''
     })
     const { name, email, phone, company, country, products } = input
-    console.log(input)
+
     const handleInput = (e)=>{
         setInput({
             ...input,
