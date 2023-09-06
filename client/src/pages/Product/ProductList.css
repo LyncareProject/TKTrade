@@ -1,5 +1,5 @@
 .ProductList {
-    padding-top: 80px;
+    padding-top: 30px;
 }
 .ProductList .Wrap {
     display: flex;
@@ -8,8 +8,7 @@
 }
 .ProductList .Wrap .ControlBar {
     width: 244px;
-   
-   
+    padding-top: 10px;
 }
 .ProductList .Wrap .ControlTitle {
     width: 100%;
@@ -74,16 +73,8 @@
     flex-wrap: wrap;
     justify-content: flex-start;
 }
-.ProductList .Wrap .Product {
-    /* width: calc(33% - 30px); */
-    margin-left: 24px;
-    margin-bottom: 30px;
-    height: auto;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-evenly;
+.ProductList .Wrap .CardWrap {
+    width: 33.3%;
 }
 .ProductList .Wrap .ProductImgWrap {
     width: 212px;
@@ -131,9 +122,15 @@
     .ProductList .Wrap .ControlBar{
         width: 330px;
     }
+    .ProductList {
+        padding-top: 0px;
+    }
 }
 
 @media (max-width: 500px) {
+    .ProductList {
+        padding-top: 0px;
+    }
     .ProductList .Wrap{
         display: block;
         margin: 0 auto;
@@ -175,5 +172,10 @@
     }
     .Footer hr{
         margin-top: 20px;
+    }
+}
+@media (max-width : 768px) {
+    .ProductList .Wrap .CardWrap {
+        width: 100%;
     }
 }

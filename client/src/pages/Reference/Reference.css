@@ -5,9 +5,9 @@
     padding-top: 80px;
 }
 .PDFListWrap {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
 }
 .PDFHead {
     width: 100%;
@@ -25,14 +25,16 @@
     font-size: 18px;
     width: 100%;
     padding: 10px 30px;
-    border-bottom: 1px solid #000;
+    border-left: 1px solid #bababa;
+    border-right: 1px solid #bababa;
+    border-bottom: 1px solid #bababa;
 }
 .PDFList p{
     margin-top: 3px;
 }
-.PDFList:last-child {
+/* .PDFList:last-child {
     border-bottom: none;
-}
+} */
 .PDFList::after{
     content: "";
     display: block;
@@ -42,4 +44,9 @@
     width: 40px;
     height: 35px;   
     margin-left: 20px;
+}
+@media (max-width : 768px) {
+    .ReferenceWrap {
+        padding-top: 0;
+    }
 }

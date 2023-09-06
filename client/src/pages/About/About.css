@@ -21,10 +21,9 @@
     font-size: 40px;
     text-indent: 44px;
     margin-bottom: 26px;
-
 }
-#About_Wrap p{
-    font-size: 20px;
+#About_Wrap p {
+    font-size: 28px;
 }
 .About_p1{
     font-size: 28px;
@@ -39,8 +38,22 @@
 .About_line{
     width: 122px;
     margin-top: 13px;
-    margin-bottom: 180px;
+    margin-bottom: 50px;
     border-top: 1px solid #707070;
+}
+.CatalogsBtn {
+    font-size: 24px;
+    font-weight: 600;
+    display: block;
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 30px;
+    color: #FFF;
+    background-color: #3189FF;
+}
+.CatalogsBtn span {
+    float: right;
 }
 @media (max-width: 979px) {
     .About_Wrap{
