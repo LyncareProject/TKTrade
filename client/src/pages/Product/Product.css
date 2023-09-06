@@ -65,7 +65,42 @@
     font-size: 16px;
     font-weight: 400;
 }
-
+.RequestWrap {
+    margin-top: 50px;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #3289FF;
+    color: #FFF;
+    border-radius: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+.RequestInputWrap {
+    margin-top: 50px;
+    width: 100%;
+    padding: 1px 30px;
+    border: 1px solid #3289FF;
+    border-radius: 25px;
+    text-align: center;
+    box-sizing: border-box;
+    position: relative;
+}
+.RequestInputWrap > input {
+    width: 100%;
+    padding: 9px 0;
+    text-align: center;
+    box-sizing: border-box;
+}
+.RequestInputWrap > input:focus {
+    outline: none;
+}
+.PaperPlane {
+    color: #3289FF;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(-50%, -50%)
+}
 @media (max-width: 939px){
     .Product .Wrap .Left{
         width: calc(55% - 30px);

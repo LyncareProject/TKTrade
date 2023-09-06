@@ -61,7 +61,7 @@ const Section02 = ({ products })=>{
             <a href='/product' className='MoreBtnWrap'>
                 <div className='MoreBtn'>
                     <h3>More Products &gt;</h3>
-                    <p>At TK TRADE with the best function and quality Find and deliver products.</p>
+                    <p>At TK TRADE with the best function and quality.<br />Find and deliver products.</p>
                 </div>
             </a>
         </div>

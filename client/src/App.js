@@ -40,9 +40,9 @@ function App() {
         <Route path='/' element={<Main />} />
         <Route path='/profile' element={<About />} />
         <Route path='/product/' element={<ProductList />} />
-        <Route path='/product/:id' element={<Product />} />
+        <Route path='/product/:id' element={<Product setSending={ setSending } />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/reference' element={<Reference />} />
+        <Route path='/reference' element={<Reference setSending={ setSending } />} />
         <Route path='/contact' element={<Contact setSending={ setSending } />} />
         <Route path='/admin' element={
           !isLogined

@@ -18,3 +18,12 @@ export const postEmail = ({
         products
     });
 };
+export const requestCatalog = ({
+        email,
+        product
+    }) => {
+    return axios.post(`${baseUrl}/email/catalog`, {
+        email,
+        product
+    });
+};

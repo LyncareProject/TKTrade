@@ -11,9 +11,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 999;
 }
 .SendingNotice {
     font-size: 64px;
     font-weight: 600;
     color: #FFF;
+    animation: blink 2s infinite;
+}
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@media (max-width : 768px) {
+    .SendingNotice {
+        font-size: 32px;
+    }
 }

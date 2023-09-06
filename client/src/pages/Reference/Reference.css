@@ -28,6 +28,7 @@
     border-left: 1px solid #bababa;
     border-right: 1px solid #bababa;
     border-bottom: 1px solid #bababa;
+    cursor: pointer;
 }
 .PDFList p{
     margin-top: 3px;
@@ -44,6 +45,64 @@
     width: 40px;
     height: 35px;   
     margin-left: 20px;
+}
+.Modal {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9;
+}
+.ModalOutside {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.35);
+}
+.ModalInputWrap {
+    position: relative;
+    width: 100%;
+    padding: 50px 30px;
+    max-width: 480px;
+    background-color: #fff;
+    z-index: 999;
+}
+.ModalInputWrap .ClosedBtn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+.ModalInputWrap h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.ModalInputWrap h3 {
+    font-weight: 600;
+    text-align: center;
+}
+
+.ModalInputWrap .InputWrap {
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+    border: 1px solid #3289FF;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+.ModalInputWrap .InputWrap > input {
+    width: calc(100% - 30px);
+    padding: 0;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.ModalInputWrap .InputWrap > input:focus {
+    outline: none;
 }
 @media (max-width : 768px) {
     .ReferenceWrap {
