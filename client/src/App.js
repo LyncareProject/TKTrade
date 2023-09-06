@@ -35,7 +35,7 @@ function App() {
       <Header setSidebar={ setSidebar } />
       <Sidebar sidebar = { sidebar } setSidebar={ setSidebar } />
       <Sending sending={ sending } />
-      <Quote />
+      <Quote setSending={ setSending }/>
       <Routes>
         <Route path='/' element={<Main />} />
         <Route path='/profile' element={<About />} />

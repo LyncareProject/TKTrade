@@ -2,47 +2,53 @@ import { useState } from 'react'
 import './Quote.css'
 import { postEmail } from '../../service/emailService'
 
-const Quote = ()=>{
+const Quote = ({ setSending })=>{
     const [ quote, setQuote ] = useState(false)
     const [ input, setInput ] = useState({
         name : '',
-        company : '',
-        phone : '',
         email : '',
+        phone : '',
+        company : '',
+        country : '',
         products : ''
     })
-    const { name, company, phone, email, products } = input
+    const { name, email, phone, company, country, products } = input
+    console.log(input)
     const handleInput = (e)=>{
         setInput({
             ...input,
             [ e.target.name ] : e.target.value
         })
     }
-    const sendBtn = ()=>{
-        if( !name || !company || !phone || !email || !products) {
+    const sendBtn = async ()=>{
+        if( !name || !email ) {
             return alert('Please fill in the required information')
         }
-        postEmail({
+        setSending(true)
+        await postEmail({
             name,
-            company,
             phone,
             email,
+            company,
+            country,
             products
         }).then(response => {
-            console.log(response.data.message)
-            if(response.data.message === 'Success'){
-                alert('Complete')
-                setQuote(false)
-                setInput({
-                    name : '',
-                    company : '',
-                    phone : '',
-                    email : '',
-                    products : ''
-                })
-            }
+            setSending(false)
+            alert('Complete')
+            setQuote(false)
+            setInput({
+                name : '',
+                email : '',
+                phone : '',
+                company : '',
+                country : '',
+                products : ''
+            })
         })
-        .catch(err => alert(`ERR : ${ err.message.message }`))
+        .catch(err => {
+            setSending(false)
+            alert(`ERR : ${ err.message.message }`)
+        })
     }
     return(
         <div className={
@@ -51,17 +57,19 @@ const Quote = ()=>{
             : 'Quote QuoteOpen'
         }>
             <div className='QuoteContent'>
-                <label htmlFor="name">name</label>
+                <label htmlFor="name">Name <span>*</span></label>
                 <input type="text" name='name' value={ name } onChange={ handleInput }/>
-                <label htmlFor="company">Company</label>
-                <input type="text" name='company' value={ company } onChange={ handleInput }/>
+                <label htmlFor="email">Email <span>*</span></label>
+                <input type="text" name='email' value={ email } onChange={ handleInput }/>
                 <label htmlFor="phone">Phone</label>
                 <input type="text" name='phone' value={ phone }  onChange={ handleInput }/>
-                <label htmlFor="email">Email</label>
-                <input type="text" name='email' value={ email } onChange={ handleInput }/>
+                <label htmlFor="company">Company</label>
+                <input type="text" name='company' value={ company } onChange={ handleInput }/>
+                <label htmlFor="company">Country</label>
+                <input type="text" name='country' value={ country } onChange={ handleInput }/>
                 <label htmlFor="products">Products of Interest</label>
                 <input type="text" name='products' value={ products } onChange={ handleInput }/>
-                <button onClick={ sendBtn }>Submit</button>
+                <button onClick={ sendBtn }>SEND</button>
             </div>
             <div className='QuoteBtn' onClick={()=>{
                 setQuote(!quote)
