@@ -1,11 +1,13 @@
+import { findAllProduct } from '../../service/productService';
 import './Search.css'
 import { useEffect, useState } from 'react'
-import Data from '../../Data'
+import testUrl from '../../service/testURL'
 
 const Search = ()=>{
     const [ input, setInput ] = useState('');
     const [ filteredData, setFilteredData ] = useState();
     const [ lang, setLang ] = useState('Eng');
+    const [ data, setData ] = useState([]);
 
     const handleInput = (e)=>{
         setInput(e.target.value)
@@ -17,8 +19,11 @@ const Search = ()=>{
         }
     }
     useEffect(()=>{
-        const result = Data.filter((data)=>
-            data.name.includes(input) || data.nameEng.toLowerCase().includes(input.toLowerCase())
+        findAllProduct().then(res => setData(res.data))
+    }, [])
+    useEffect(()=>{
+        const result = data.filter((item)=>
+            item.name.includes(input) || item.nameEng.toLowerCase().includes(input.toLowerCase())
         )
         setFilteredData(result)
     }, [input]) 
@@ -35,15 +40,15 @@ const Search = ()=>{
                 ? null
                 : <div className='SearchResult'>
                     {
-                        filteredData.map((a, i)=>
-                            <a href={`/product/${ a.id }`} key={ i } className='FilteredData'>
+                        filteredData.map((product, index)=>
+                            <a href={`/product/${ product._id }`} key={ index } className='FilteredData'>
                                 <div className='FilteredDataImg'>
-                                    <img src={`/images/${ a.images[0] }`} alt=''/>
+                                    <img src={`${testUrl}/${ product.images[0] }`} alt=''/>
                                 </div>
                                 {
                                     lang === "Eng"
-                                    ? <p className='FilteredDataName'>{ a.nameEng }</p>
-                                    : <p className='FilteredDataName'>{ a.name }</p>
+                                    ? <p className='FilteredDataName'>{ product.nameEng }</p>
+                                    : <p className='FilteredDataName'>{ product.name }</p>
                                 }               
                             </a>
                         )
