@@ -53,7 +53,8 @@ const ProductList = ()=>{
         }
         if(checkedCategory && checkedSubcategory){
             const filter = products.filter(product =>
-                product.category_2 === checkedSubcategory
+                // product.category_2 === checkedSubcategory
+                product.category === checkedCategory && product.category_2 === checkedSubcategory
             )
             return setFilteredData(filter)
         }
