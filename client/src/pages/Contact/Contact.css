@@ -73,6 +73,7 @@
     border-radius: 5px;
     padding: 7px 15px;
     font-size: 16px;
+    resize: none;
 }
 .SendBtn {
     float: right;
