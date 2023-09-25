@@ -9,7 +9,7 @@ const productSchema = new mongoose.Schema({
     content : { type: String }, 
     contentEng : { type: String }, 
     pdf : { type: String }, 
-    images : { type: Array }, 
+    images : { type: Array }
 })
 
 const Product = mongoose.model("product", productSchema);

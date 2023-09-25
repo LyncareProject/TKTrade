@@ -62,7 +62,8 @@ const Category = ({ setMode })=>{
     }
     const deleteMainCategory = async ( name )=>{
         if (window.confirm("상위 카테고리를 삭제하면 하위 카테고리 또한 삭제됩니다.")) {
-            await deleteCategory({ category : name })
+            const encodedName = encodeURIComponent(name)
+            await deleteCategory({ category : encodedName })
             .then(()=>{
                 setCheckedCategory('')
                 fatchMainCategory()
