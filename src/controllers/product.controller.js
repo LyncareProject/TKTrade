@@ -1,6 +1,6 @@
 const db = require("../models");
 const ObjectId = require("mongoose").Types.ObjectId;
-const { product : Product } = db;
+const { category : Category, product : Product } = db;
 const path = require('path');
 
 exports.create = async (req, res) => {
@@ -44,11 +44,20 @@ exports.delete = async (req, res) => {
 }
 
 exports.findAll = async (req, res) => {
-    await Product.find()
-        .then(result =>{
-            return res.status(200).json(result)
-        })
-        .catch((err)=>{
-            return res.json(err)
-        })
+    try {
+        const categoryResult = await Category.find().sort({order: 1})
+        const product = []
+    
+        for(let step = 0; step < categoryResult.length; step++){
+            const result = await Product.find({ category : categoryResult[step].category })
+            product.push(...result)
+        }
+        res.status(200).json(product)
+    } catch(error){
+        res.json(err)
+    }
+
+    // DB에서 카테고리 전체를 가져오기 
+    // DB 카테고리 명들을 순서대로 배열에 넣고
+    // 배열 첫번째 부터 하나씩 Product.find()
 }

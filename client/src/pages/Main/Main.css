@@ -41,29 +41,29 @@
 }
 
 /* section2 */
-.product {    
+.CategoryMain {    
     width: 223px;
-    height: 418px;
+    height: 238px;
     margin-bottom: 50px;
     padding: 10px;
     cursor: pointer;
     /* box-sizing: border-box; */
 }
-.product:hover {    
+.CategoryMain:hover {    
     border: 3px solid #3289FF;
     border-radius: 10px;
 }
-.product img{
+.CategoryMain img{
     width: 223px;
     height: 188px;
 }
-.product_Tit{
+.CategoryMain div{
     line-height: 1.8;
     margin-top: 5px;
     font-size: 16px;
     font-weight: 600;
 }
-.product p{
+.CategoryMain p{
     font-weight: normal;
     margin-bottom: 12px;
 }

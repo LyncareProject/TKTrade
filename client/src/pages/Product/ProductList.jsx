@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
-import { useLocation } from 'react-router-dom';
 import {  readCategory, readAllSubcategory } from "../../service/categoryService"
-import './ProductList.css'
+import './ProductList.css';
 import { findAllProduct } from "../../service/productService"
 import testUrl from "../../service/testURL"
 import Card from "../../components/Card/Card";
+import {useLocation} from "react-router-dom";
 
 const ProductList = ()=>{
     const [ loading, setLoading ] = useState(true)
@@ -13,9 +13,9 @@ const ProductList = ()=>{
     const [ products, setProducts ] = useState([])
     const [ filteredSub, setFilteredSub ] = useState([])
     const [ filteredData, setFilteredData ] = useState([])
-
     const [ checkedCategory, setCheckedCategory ] = useState('')
     const [ checkedSubcategory, setCheckedSubcategory ] = useState('')
+
     const fetchMainCategory = async ()=>{
         await readCategory()
             .then(response => setMainCategory(response.data))
@@ -31,6 +31,7 @@ const ProductList = ()=>{
             .then(response => setProducts(response.data))
             .catch(err => console.log(err.messages))
     }
+
     const handleChecked = ( name )=>{
         setCheckedCategory(name)
         setCheckedSubcategory('')
@@ -59,7 +60,6 @@ const ProductList = ()=>{
             return setFilteredData(filter)
         }
     }, [checkedCategory, checkedSubcategory])
-
     const openSubMenu = ( name )=>{
         if(checkedCategory === name){
             const filter = subCategory.filter(sub => 
@@ -86,13 +86,19 @@ const ProductList = ()=>{
     }
     return(
         <div className='ProductList'>
-            <div className="Wrap">
-                <div className="ControlBar">
+            <div className={
+                !checkedCategory
+                ? null
+                : 'Wrap'}>
+                <div className={
+                    checkedCategory
+                    ? "ControlBar"
+                    : "ControlBarNone"}>
                     <div className="ControlTitle" >PRODUCTS</div>
-                    <div className="Category" onClick={()=>{
+                    {/* <div className="Category" onClick={()=>{
                         setCheckedCategory('')
                         setCheckedSubcategory('')
-                    }}>ALL</div>
+                    }}>ALL</div> */}
                     {
                         mainCategory.map((a, i)=>
                             <div key={ i }>
@@ -117,13 +123,22 @@ const ProductList = ()=>{
                             {
                                 !checkedCategory
                                 ? <>
-                                    {
-                                        products.map((product, index)=>
-                                            <div className='CardWrap' key={ index }>
-                                                <Card product={ product }/>
+                                    <div className='CategoryProductWrap'>
+                                        {
+
+                                        mainCategory.map((a, index)=>
+                                    
+                                        <div className='CategoryList1' key={ index } onClick={()=>{
+                                            handleChecked(a.category)
+                                        }}>
+                                            <div className='CardImgWrap'>
+                                                <img src='http://tk-trade.co.kr/uploads/BKK TYPE-1697442535837.png' alt="" />
                                             </div>
-                                        )
-                                    }
+                                            {a.category}</div>
+
+                                            )
+                                        }
+                                    </div>
                                 </>
                                 : <>
                                 {

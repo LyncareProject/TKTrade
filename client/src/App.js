@@ -39,7 +39,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Main />} />
         <Route path='/profile' element={<About />} />
-        <Route path='/product/' element={<ProductList />} />
+        <Route path='/product' element={<ProductList />} />
         <Route path='/product/:id' element={<Product setSending={ setSending } />} />
         <Route path='/login' element={<Login />} />
         <Route path='/reference' element={<Reference setSending={ setSending } />} />

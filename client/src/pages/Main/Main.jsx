@@ -8,26 +8,30 @@ import Main_img_m from '../../assets/images/Tk_main_bg_m.png'
 import Consulting from '../../assets/images/Consulting.png'
 import { useNavigate } from 'react-router-dom';
 import Card from '../../components/Card/Card'
+import ProductList from '../../pages/Product/ProductList';
+import { readCategory } from '../../service/categoryService';
 
 const Main = ()=>{
-    const [ products, setProducts ] = useState(null);
+    const [ mainCategory, setMainCategory ] = useState([]);
     useEffect(()=>{
         const fetchData = async ()=>{
-            await findAllProduct().then(res=>{
-                const sliceProducts = res.data.slice(0, 7)
-                setProducts(sliceProducts)
+            await readCategory().then(res=>{
+                const sliceMainCategory = res.data.slice(0, 3)
+                setMainCategory(sliceMainCategory)
             })
         }
         fetchData()
     },[])
 
+
+
     return(
         <div  className='Main'>
             <Section01 />
             {
-                !products
+                !mainCategory
                 ? null
-                :<Section02 products= { products }/>
+                :<Section02 mainCategory= { mainCategory }/>
             }
             <Section03 />
             <Section04 />
@@ -47,21 +51,25 @@ const Section01 = ()=>{
         </div>
     )
 }
-const Section02 = ({ products })=>{
+const Section02 = ({ mainCategory })=>{
     const navigate = useNavigate();
     return(
         <div className='Section02'>
             {
-                products.map((product, index) =>
-                    <div className='CardWrap' key={ index }>
-                        <Card product={ product }/>
-                    </div>
+                mainCategory.map((a, index)=>
+                        <div className='CategoryMain'key={ index } onClick={() =>
+                            navigate('/product', {state: mainCategory})
+                          } >
+                            <div className='CardImgWrap'>
+                                <img src='http://tk-trade.co.kr/uploads/BKK TYPE-1697442535837.png' alt="" />
+                            </div>
+                            {a.category}</div>
                 )
             }
             <a href='/product' className='MoreBtnWrap'>
                 <div className='MoreBtn'>
                     <h3>More Products &gt;</h3>
-                    <p>At TK TRADE with the best function and quality.<br />Find and deliver products.</p>
+                    <p>Find and deliver products with the best function and quality at TK-Trade.</p>
                 </div>
             </a>
         </div>
