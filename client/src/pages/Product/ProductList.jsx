@@ -7,25 +7,20 @@ import Card from "../../components/Card/Card";
 import {useLocation} from "react-router-dom";
 
 const ProductList = ()=>{
+    const {state} = useLocation();
+    console.log(state);
     const [ loading, setLoading ] = useState(true)
     const [ mainCategory, setMainCategory ] = useState([])
-    const [ subCategory, setSubCategory ] = useState([])
     const [ products, setProducts ] = useState([])
-    const [ filteredSub, setFilteredSub ] = useState([])
     const [ filteredData, setFilteredData ] = useState([])
     const [ checkedCategory, setCheckedCategory ] = useState('')
-    const [ checkedSubcategory, setCheckedSubcategory ] = useState('')
 
     const fetchMainCategory = async ()=>{
         await readCategory()
             .then(response => setMainCategory(response.data))
             .catch(err => console.log(err.messages))
     }
-    const fetchAllSubCategory = async () => {
-        await readAllSubcategory()
-            .then(response => setSubCategory(response.data))
-            .catch(err => console.log(err.messages))
-    }
+
     const fetchAllProducts = async () => {
         await findAllProduct()
             .then(response => setProducts(response.data))
@@ -34,56 +29,30 @@ const ProductList = ()=>{
 
     const handleChecked = ( name )=>{
         setCheckedCategory(name)
-        setCheckedSubcategory('')
     }
 
     useEffect(()=>{
         setLoading(true)
         fetchMainCategory()
-        fetchAllSubCategory()
         fetchAllProducts()
         setLoading(false)
     }, [])
 
     useEffect(()=>{
-        if(checkedCategory && !checkedSubcategory){
+        if(checkedCategory){
             const filter = products.filter(product =>
                 product.category === checkedCategory
             )
             return setFilteredData(filter)
         }
-        if(checkedCategory && checkedSubcategory){
+        if(checkedCategory){
             const filter = products.filter(product =>
-                // product.category_2 === checkedSubcategory
-                product.category === checkedCategory && product.category_2 === checkedSubcategory
+                product.category === checkedCategory
             )
             return setFilteredData(filter)
         }
-    }, [checkedCategory, checkedSubcategory])
-    const openSubMenu = ( name )=>{
-        if(checkedCategory === name){
-            const filter = subCategory.filter(sub => 
-                sub.category === checkedCategory
-            )
-            return (
-                <>
-                {
-                    filter.map((a, index)=>
-                        <div key={ index } className={
-                            a.subcategory === checkedSubcategory
-                            ? "subCategory subCategoryActive"
-                            : "subCategory"
-                        } onClick={()=>{
-                            setCheckedSubcategory(a.subcategory)
-                        }}>
-                            <p>{ a.subcategory }</p>
-                        </div>
-                    )
-                }
-                </>
-            )
-        }
-    }
+    }, [checkedCategory])
+
     return(
         <div className='ProductList'>
             <div className={
@@ -95,10 +64,6 @@ const ProductList = ()=>{
                     ? "ControlBar"
                     : "ControlBarNone"}>
                     <div className="ControlTitle" >PRODUCTS</div>
-                    {/* <div className="Category" onClick={()=>{
-                        setCheckedCategory('')
-                        setCheckedSubcategory('')
-                    }}>ALL</div> */}
                     {
                         mainCategory.map((a, i)=>
                             <div key={ i }>
