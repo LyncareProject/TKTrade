@@ -109,7 +109,6 @@ const ProductList = ()=>{
                                 } onClick={()=>{
                                     handleChecked(a.category)
                                 }}>{a.category}</div>
-                                { openSubMenu(a.category) }
                             </div>
                         )
                     }
