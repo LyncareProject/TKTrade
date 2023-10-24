@@ -1,38 +1,19 @@
 import axios from 'axios';
 import baseUrl from './apiConfig';
 
-export const createCategory = ({
-        category
-    }) => {
-    return axios.post(`${baseUrl}/category`, {
-        category
-    });
+// Main Category API Functions
+export const createCategory = ({ category, images }) => {
+    return axios.post(`${baseUrl}/category`, {category, images });
 };
+
 export const readCategory = () => {
     return axios.get(`${baseUrl}/category`);
 };
+
 export const deleteCategory = ({ category }) => {
     return axios.delete(`${baseUrl}/category/${category}`);
 };
 
-
-export const createSubcategory = ({
-        category,
-        subcategory
-    }) => {
-    return axios.post(`${baseUrl}/category/subcategory/create`, {
-        category,
-        subcategory
-    });
-};
-export const readSubcategory = ({ category }) => {
-    return axios.post(`${baseUrl}/category/subcategory`, { category });
-};
-export const readAllSubcategory = () => {
-    return axios.get(`${baseUrl}/category/subcategory`);
-};
-export const deleteSubcategory = ({ category, subcategory }) => {
-    return axios.post(`${baseUrl}/category/subcategory/delete`, {
-        category, subcategory
-    });
+export const updateCategory = ({ category, images }) => {
+    return axios.put(`${baseUrl}/category`, {category, images });
 };
