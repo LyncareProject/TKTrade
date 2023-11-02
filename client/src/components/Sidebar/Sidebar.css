@@ -16,86 +16,28 @@
     left: -300px;
 }
 .Open {
+    position: fixed;
     left: 0;
     transition: all 0.2s;
 }
 .Sidebar .MobileLogo {
-    margin-bottom: 20px;
-    margin-left: 25px;
+    margin-bottom: 60px;
 }
-
+.Sidebar .MobileIcon {
+    width: 20px;
+    margin-right: 15px;
+}
+.Sidebar .MobileMenu {
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 5px;
+    margin-bottom: 15px;
+}
 .SidebarOut {
     position: absolute;
     width: 100%;
     height: 100vh;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.15);
-}
-
-.SideProductList {
-    padding-top: 30px;
-}
-.SideProductList .Wrap {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.SideProductList .Wrap .ControlBar {
-    width: 254px;
-    padding-top: 10px;
-}
-.SideProductList .Wrap .ControlTitle {
-    width: 100%;
-    padding: 10px 20px;
-    font-size: 18px;
-    font-weight: 600;
-    background-color: #1289FF;
-    color: #FFF;
-}
-.SideProductList .Wrap .Category {
-    width: 100%;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 10px 20px;
-    border: 1px solid #EAEAEA;
-    cursor: pointer;
-}
-.SideProductList .Wrap .CategoryActive {
-    color: #1289FF;
-    border-bottom: none;
-    position: relative;
-}
-.SideProductList .Wrap .CategoryActive::after {
-    content: '';
-    position: absolute;
-    left: 5%;
-    bottom: 0;
-    width: 90%;
-    height: 1px;
-    background: #1289FF;
-}
-.SideProductList .Wrap .subCategory {
-    width: 100%;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 15px 35px;
-    border-left: 1px solid #EAEAEA;
-    border-right: 1px solid #EAEAEA;
-    cursor: pointer;
-    position: relative;
-}
-.SideProductList .Wrap .subCategoryActive {
-    color: #1289FF;
-}
-.SideProductList .Wrap .subCategory p::before{
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 5px;
-    height: 5px;
-    border-radius: 50px;
-    background: #000;
+    /* background-color: rgba(0, 0, 0, 0.15); */
 }

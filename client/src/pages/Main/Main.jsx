@@ -57,11 +57,11 @@ const Section02 = ({ mainCategory })=>{
         <div className='Section02'>
             {
                 mainCategory.map((a, index)=>
-                        <div className='CategoryMain'key={ index } onClick={() =>
-                            navigate('/product', {state: mainCategory})
+                        <div className='MainCategoryPreview'key={ index } onClick={() =>
+                            navigate('/product', {state: a.category})
                           } >
                             <div className='CardImgWrap'>
-                                <img src='http://tk-trade.co.kr/uploads/BKK TYPE-1697442535837.png' alt="" />
+                            <img src={`${ testUrl }/${ a.images }`} alt="" />
                             </div>
                             {a.category}</div>
                 )

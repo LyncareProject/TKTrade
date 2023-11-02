@@ -14,6 +14,6 @@ export const deleteCategory = ({ category }) => {
     return axios.delete(`${baseUrl}/category/${category}`);
 };
 
-export const updateCategory = ({ category, images }) => {
-    return axios.put(`${baseUrl}/category`, {category, images });
+export const updateCategory = ({ category, changedCategory, images }) => {
+    return axios.put(`${baseUrl}/category`, {category, changedCategory, images });
 };

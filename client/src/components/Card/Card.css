@@ -21,6 +21,7 @@
 }
 .CardImgWrap > img {
     height: 100%;
+    object-fit: contain;
 }
 .CardContentsWrap {
     width: 100%;

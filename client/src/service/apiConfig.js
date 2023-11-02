@@ -1,5 +1,5 @@
 import testUrl from './testURL'
 
-const baseUrl = `${testUrl}/api`;
+const baseUrl = `/api`;
 
 export default baseUrl;

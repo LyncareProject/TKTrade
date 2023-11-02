@@ -4,6 +4,8 @@ import Search from '../Search/Search';
 import Logo from '../../assets/images/Logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const company = [
     { name: 'Greeting', href: '/'},
@@ -16,6 +18,7 @@ function Header({ setSidebar }) {
     const handleSidebar = ()=>{
         setSidebar(true)
     }
+    const [checkedCategory, setCheckedCategory] = useState('');
     return (
         <div className='Header'>
             <div className='Wrap'>
@@ -31,14 +34,15 @@ function Header({ setSidebar }) {
 
                 <div className='MenuList'>
                     <Link to='/' className='Menu'>
-                        <p>Main</p>
+                        <p>MAIN</p>
                     </Link>
 
                     
 
-                    <Link to='/product' className='Menu'>
-                        <p>Product</p>
-                    </Link>
+                   { 
+                   <Link to='/product' className='Menu'>
+                        <p>PRODUCT</p>
+                    </Link>}
                     {/* <div className='Menu ProductsMenu'>
                         <p>PRODUCTS</p>
                         <div className='ProductsSubMenu'>
@@ -53,11 +57,11 @@ function Header({ setSidebar }) {
                     </div> */}
 
                     <Link to='/contact' className='Menu'>
-                        <p>Contact</p>
+                        <p>CONTACT</p>
                     </Link>
 
                     <Link to='/profile' className='Menu'>
-                        <p>Profile</p>
+                        <p>PROFILE</p>
                     </Link>
                     
                     {/* <Link to='/customer' className='Menu'>

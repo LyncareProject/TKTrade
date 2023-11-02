@@ -106,4 +106,4 @@ const Product = ({ setSending })=>{
     )
 }
 
-export default Product
+export default Product;

@@ -1,11 +1,11 @@
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Main from './pages/Main/Main';
 import Product from './pages/Product/Product';
 import Quote from './components/Quote/Quote'; 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Sidebar from './components/Sidebar/Sidebar';
 import ProductList from './pages/Product/ProductList';
 import ProductEditor from './pages/Product/ProductEditor';
@@ -20,11 +20,20 @@ import About from './pages/About/About';
 import Sending from './components/Sending/Sending';
 import Reference from './pages/Reference/Reference';
 
+let currentPath = '';
+
 function App() {
+  let location = useLocation()
   const [ sidebar, setSidebar ] = useState(false)
   const [ sending, setSending ] = useState(false)
   const [ mode, setMode ] = useState("category")
   const isLogined = useSelector((state) => state.user.value.isLogined)
+
+  useEffect(() => {
+    if(currentPath === location.pathname) window.location.reload();
+     
+    currentPath = location.pathname;
+  }, [location]);
   return (
     <div className="App">
       {

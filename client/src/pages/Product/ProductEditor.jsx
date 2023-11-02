@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import './ProductEditor.css'
-import { readAllSubcategory, readCategory } from "../../service/categoryService";
+import { readCategory } from "../../service/categoryService";
 import { createProduct, findOneProduct, updateProduct } from "../../service/productService";
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { deleteImg, uploadImg } from "../../service/uploadService";
@@ -13,16 +13,13 @@ const ProductEditor = ({ setMode })=>{
 
     const [ loading, setLoading ] = useState(true)
     const [ mainCategory, setMainCategory ] = useState(null)
-    const [ subCategory, setSubCategory ] = useState(null)
     const [ checkedCategory, setCheckedCategory ] = useState('')
-    const [ filteredSub, setFilteredSub ] = useState([])
 
     const [ input, setInput ] = useState({
         _id : "",
         nameEng : "",
         name : "",
         category : "",
-        category_2 : "",
         content : "",
         contentEng : "",
         pdf : "",
@@ -99,15 +96,12 @@ const ProductEditor = ({ setMode })=>{
             await readCategory()
                 .then(response => setMainCategory(response.data))
                 .catch(err => console.log(err.messages))
-            await readAllSubcategory()
-                .then(response => setSubCategory(response.data))
-                .catch(err => console.log(err.messages))
             setLoading(false)
         }
         fetchCategoryData()
     }, [])
     useEffect(()=>{
-        if(state && mainCategory && subCategory){
+        if(state && mainCategory){
             const fetchData = async ()=>{
                 await findOneProduct({ _id : state })
                     .then(response => {
@@ -119,14 +113,6 @@ const ProductEditor = ({ setMode })=>{
             fetchData()
         }
     },[state, loading])
-    useEffect(()=>{
-        if(checkedCategory){
-            const filter = subCategory.filter(sub => 
-                sub.category === checkedCategory
-            )
-            setFilteredSub(filter)
-        }
-    },[checkedCategory])
 
     const createProductBtn = ()=>{
         if(!nameEng || !category ){
@@ -204,28 +190,6 @@ const ProductEditor = ({ setMode })=>{
                                 )
                             }
                         </select>
-                    </div>
-                    <div className="labelInput">
-                        <label className="EditorLabel" htmlFor="category_2">카테고리 소분류</label>
-                        {
-                            !checkedCategory
-                            ? <select name="category_2" id="category_2" value={ category_2 } onChange={ handleInput }>
-                                <option value=''>상위 카테고리를 선택해주세요.</option>
-                                {/* {
-                                    subCategory.map((category, index)=>
-                                        <option key={ index } value={ category.subcategory }>{ category.subcategory }</option>
-                                    )
-                                } */}
-                            </select>
-                            : <select name="category_2" id="category_2" value={ category_2 } onChange={ handleInput }>
-                            <option value=''>하위 카테고리를 선택해주세요.</option>
-                            {
-                                filteredSub.map((category, index)=>
-                                    <option key={ index } value={ category.subcategory }>{ category.subcategory }</option>
-                                )
-                            }
-                        </select>
-                        }
                     </div>
 
                     <div className="labelInput">
