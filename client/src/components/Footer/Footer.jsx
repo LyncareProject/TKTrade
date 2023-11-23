@@ -1,5 +1,6 @@
 import './Footer.css'
 import Footer_logo from '../../assets/images/TK_footer_logo.png'
+import Facebook_logo from '../../assets/images/TK_facebook_logo.png'
 
 const Footer = ()=>{
     return(
@@ -7,7 +8,10 @@ const Footer = ()=>{
            
             <div className='Wrap , Wrap2 , Footer_text'>
                 <hr className='hr_hidden' />
-                <p className='footer_logo'><img src={ Footer_logo } alt="Footer_Logo" /></p>  
+                <div className='logoWrap'>
+                    <p><img className='footer_logo' src={ Footer_logo } alt="Footer_Logo" /></p>
+                    <p><a href='https://www.facebook.com/profile.php?id=61553664670813'><img className='facebook_logo' src={ Facebook_logo } alt="Facebook_Logo" /></a></p>
+                </div>
                 <div className='footer_address'>
                     <div className='footer_address1'>
                         <div className='footer_address_1'> 

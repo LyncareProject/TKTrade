@@ -1,12 +1,29 @@
+.Footer {
+    width: 100%;
+}
 
 .Footer hr{
     margin: 70px 0 45px;
 }
 
-.footer_logo{
+.logoWrap {
+    display: flex;
+}
+
+.logoWrap p{
+    width: 100%;
+}
+
+.footer_logo {
     width: 178px;
     height: 45px;
     margin-left: -29px;
+}
+
+.facebook_logo {
+    width: 45px;
+    height: 45px;
+    float: right;
 }
 
 .Footer h3{
@@ -20,7 +37,6 @@
 }
 .Footer span{
     color: #000;
-
 }
 
 .footer_address{
@@ -44,3 +60,8 @@
 .copyright{
     margin: 30px 0;
 }
+
+@media (max-width: 1000px) {
+
+}
+    
