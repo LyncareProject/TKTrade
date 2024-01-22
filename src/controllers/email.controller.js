@@ -16,7 +16,9 @@ const transporter = nodemailer.createTransport({
     pass: EMAIL_PASSWORD, // 보내는 메일의 비밀번호
   },
 });
-const tktradeEmail = "kimkuns98@gmail.com";
+// const tktradeEmail = "kimkuns98@gmail.com";
+// const tktradeEmail = "sales.tktrade@gmail.com";
+const tktradeEmail = "tk-trade@naver.com";
 // const tktradeEmail = 'tk-trade@naver.com'
 
 exports.postEmail = async (req, res) => {
