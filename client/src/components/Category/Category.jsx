@@ -43,7 +43,6 @@ const Category = ({ setMode }) => {
         setInput({
             ...input,
             [e.target.name]: e.target.value,
-            // [e.target.images] : e.target.files[0]
         });
         console.log(e.target)
     }

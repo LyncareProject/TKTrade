@@ -1,10 +1,10 @@
 // @ts-check
 
-const express = require('express')
-const cors = require("cors");
-const path = require('path');
+var express = require('express')
+var cors = require("cors");
+var path = require('path');
 
-const app = express()
+var app = express()
 
 app.use(cors());
 app.use(express.json())
