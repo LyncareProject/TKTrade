@@ -8,7 +8,7 @@ const { email: Email } = db;
 const transporter = nodemailer.createTransport({
   service: EMAIL_SERVICE, // 메일 보내는 곳
   port: 465,
-  host: "smtp.naver.com",
+  host: "smtp.google.com",
   secure: false,
   requireTLS: true,
   auth: {
@@ -18,16 +18,16 @@ const transporter = nodemailer.createTransport({
 });
 // const tktradeEmail = "kimkuns98@gmail.com";
 // const tktradeEmail = "sales.tktrade@gmail.com";
-const tktradeEmail = "tk-trade@naver.com";
-// const tktradeEmail = 'tk-trade@naver.com'
+// const tktradeEmail = "tk-trade@naver.com";
+const tktradeEmail = "wevibeinc@google.com";
 
 exports.postEmail = async (req, res) => {
   const { name, phone, email, company, country, products } = req.body;
-  const handleHtml = () => {
-    if (email) {
-      ("<p style='font-size : 18px; margin-bottom : 30px; color: #CACACA'>Email By <span style='font-weight : 600; margin-right: 10px;'>${ email }</span></p>");
-    }
-  };
+  // const handleHtml = () => {
+  //   if (email) {
+  //     ("<p style='font-size : 18px; margin-bottom : 30px; color: #CACACA'>Email By <span style='font-weight : 600; margin-right: 10px;'>${ email }</span></p>");
+  //   }
+  // };
   await transporter
     .sendMail({
       from: EMAIL_USER, // sender address

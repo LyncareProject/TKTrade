@@ -80,10 +80,11 @@ const Category = ({ setMode }) => {
             })
             .catch(err => console.log(err.message));
     }
-
+    // 업데이트 카테고리
     const updateMainCategory = async () => {
+        // category에 check한 카테고리 명, changedCategory에 새로 입력한 카테고리명, images에 등록한 이미지가 들어가서 axios를 통해 백엔드로 요청을 하게 된다.
         await updateCategory({ category: checkedCategory, changedCategory : mainCategoryName, images })
-            .then(response => {
+            .then(() => {
                 alert("수정 완료")
                 setInput({
                     mainCategoryName: '',
@@ -107,6 +108,8 @@ const Category = ({ setMode }) => {
         }
     }
 
+
+    // 이미지 업로드 기능
     const handleImage = async (e)=>{
         const image = e.target.files[0]
         const formData = new FormData();

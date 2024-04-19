@@ -26,7 +26,9 @@ exports.deleteCategory = async (req, res) => {
 }
 exports.updateCategory = async (req, res) => {
    try {
+    // category와 changedCategory, images를 요청 바디에서 가져와서 각각 넣고
     const { category, changedCategory, images } = req.body
+    // 가져온 category를 보고 일치하는 category를 찾아서 chanedCategory 값과 images를 넣어준다.
     const result = await Category.findOneAndUpdate({ category }, {$set : {
         category : changedCategory,
         images : images

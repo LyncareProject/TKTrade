@@ -8,8 +8,10 @@ const MONGO_CLUSTER =
   process.env.MONGO_CLUSTER || "lyncare.5ip2vsa.mongodb.net";
 const MONGO_DBNAME = process.env.MONGO_DBNAME || "tktrade";
 const EMAIL_SERVICE = process.env.EMAIL_SERVICE || "gmail";
-const EMAIL_USER = process.env.EMAIL_USER || "sales.tktrade@gmail.com";
-const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD || "rnbhilezaslvadcx";
+// const EMAIL_USER = process.env.EMAIL_USER || "sales.tktrade@gmail.com";
+// const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD || "rnbhilezaslvadcx";
+const EMAIL_USER = process.env.EMAIL_USER || "wevibeinc@gmail.com";
+const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD || "ykunumkiehgkjpov";
 
 /* eslint-disable prefer-destructuring */
 
