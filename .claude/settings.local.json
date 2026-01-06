@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git stash:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(client/src/components/Popup/ )",
+      "Bash(client/src/pages/Popup/ )",
+      "Bash(client/src/service/popupService.js )",
+      "Bash(src/controllers/popup.controller.js )",
+      "Bash(src/models/popup.model.js )",
+      "Bash(src/routes/popup.routes.js )",
+      "Bash(src/models/index.js )",
+      "Bash(src/routes/index.js )",
+      "Bash(client/src/App.js )",
+      "Bash(client/src/pages/Admin/Admin.jsx )",
+      "Bash(client/src/pages/Admin/Admin.css )",
+      "Bash(docs/popup-feature.md)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}
