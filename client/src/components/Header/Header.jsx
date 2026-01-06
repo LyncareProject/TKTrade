@@ -1,8 +1,9 @@
 import './Header.css'
-import { Link } from 'react-router-dom';
-import Search from '../Search/Search';
-import Logo from '../../assets/images/Logo.png'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from 'react-router-dom';
+import Logo from '../../assets/images/TK_Logo.png'
+import Search from '../Search/Search';
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';

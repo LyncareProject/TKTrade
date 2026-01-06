@@ -1,6 +1,7 @@
 import './Footer.css'
-import Footer_logo from '../../assets/images/TK_footer_logo.png'
+
 import Facebook_logo from '../../assets/images/TK_facebook_logo.png'
+import Footer_logo from '../../assets/images/TK_Logo.png'
 
 const Footer = ()=>{
     return(

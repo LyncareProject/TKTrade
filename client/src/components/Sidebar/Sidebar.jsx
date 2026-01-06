@@ -1,7 +1,9 @@
 import './Sidebar.css'
-import Logo from '../../assets/images/Logo.png'
+
+import { faEnvelope, faHouse, faIndustry, faUsers, faWrench } from '@fortawesome/free-solid-svg-icons'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHouse, faWrench, faUsers, faIndustry, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import Logo from '../../assets/images/TK_Logo.png'
 
 const Sidebar = ({
     sidebar,
