@@ -22,6 +22,13 @@ const Admin = ({ mode, setMode })=>{
                     } onClick={()=>{
                         setMode("product")
                     }}>상품 관리</Link>
+                    <Link to='/admin/popup' className={
+                        mode === "popup"
+                        ? "Active"
+                        : null
+                    } onClick={()=>{
+                        setMode("popup")
+                    }}>팝업 관리</Link>
                 </div>
                 <Outlet />
             </div>

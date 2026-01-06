@@ -1,0 +1,122 @@
+.PopupAdmin {
+    width: 100%;
+}
+
+.PopupAdminHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.PopupAdminHeader h2 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.AddPopupBtn {
+    background-color: #1289FF;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.AddPopupBtn:hover {
+    background-color: #0066CC;
+}
+
+.NoPopup {
+    text-align: center;
+    color: #777;
+    padding: 50px 0;
+}
+
+.PopupList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.PopupItem {
+    display: flex;
+    border: 1px solid #EAEAEA;
+    border-radius: 8px;
+    padding: 20px;
+    gap: 20px;
+    align-items: center;
+}
+
+.PopupImageWrap {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.PopupImageWrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.PopupInfo {
+    flex: 1;
+}
+
+.PopupInfo h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.PopupInfo p {
+    color: #666;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.PopupStatus .Active {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.PopupStatus .Inactive {
+    color: #dc3545;
+    font-weight: 600;
+}
+
+.PopupActions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.PopupActions button {
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    min-width: 80px;
+}
+
+.EditBtn {
+    background-color: #FFC107;
+    color: #000;
+}
+
+.EditBtn:hover {
+    background-color: #E0A800;
+}
+
+.DeleteBtn {
+    background-color: #DC3545;
+    color: #FFF;
+}
+
+.DeleteBtn:hover {
+    background-color: #C82333;
+}

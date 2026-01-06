@@ -19,6 +19,9 @@ import Contact from './pages/Contact/Contact';
 import About from './pages/About/About';
 import Sending from './components/Sending/Sending';
 import Reference from './pages/Reference/Reference';
+import PopupAdmin from './pages/Popup/PopupAdmin';
+import PopupEditor from './pages/Popup/PopupEditor';
+import PopupModal from './components/Popup/PopupModal';
 
 let currentPath = '';
 
@@ -64,8 +67,11 @@ function App() {
           
           <Route path='editor' element={<ProductEditor setMode={ setMode }/>} />
           <Route path='editor/:id' element={<ProductEditor setMode={ setMode }/>} />
+          <Route path='popup' element={<PopupAdmin setMode={ setMode }/>} />
+          <Route path='popup/editor' element={<PopupEditor setMode={ setMode }/>} />
         </Route>
       </Routes>
+      <PopupModal />
       <Footer />
     </div>
   );
